@@ -15,25 +15,25 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
         </h2>
       </header>
       <div className="flex flex-col justify-between flex-1 ">
-        <div className="flex justify-center  ">
+        <div className="flex justify-center gap-x-2">
           <div className="ms-1 flex flex-col self-end">
             <RatingStarsSVG rating={product.rating} />
-            <p className="text-xs text-red-500 ">
-              -{product.discountPercentage} $
+            <p className="text-xs text-red-500">
+              -{product.discountPercentage} $ off
             </p>
           </div>
           <img
             src={product.thumbnail}
-            className="w-28 h-28 object-cover rounded-lg"
+            className="w-36 h-36 object-cover rounded-lg shadow-xl"
             alt={product.title}
           />
         </div>
       </div>
-      <footer className="  bg-lightViolet/80 px-2  py-1 rounded-lg mt-2">
-        <p className="text-sm  text-white/70 dark:text-gray-300 line-clamp-2">
+      <footer className="bg-lightViolet/80 px-2 py-1 rounded-lg mt-2">
+        <p className="text-sm text-white/70 dark:text-gray-300 line-clamp-2">
           {product.description}
         </p>
-        <p className="text-right text-md font-semibold text-subColor_4">
+        <p className="text-right text-md font-semibold text-white">
           ${product.price}
         </p>
       </footer>

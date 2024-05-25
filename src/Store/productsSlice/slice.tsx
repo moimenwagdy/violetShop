@@ -35,16 +35,38 @@ const init: product[] = [
     weight: 0,
   },
 ];
+interface st {
+  filter: string;
+}
+const filter: st[] = [];
 
 const productsSlice = createSlice({
   name: "productsSlice",
-  initialState: { products: init, isFetched: false },
+  initialState: {
+    products: init,
+    filteredProducts: init,
+    isFetched: false,
+    offset: 12,
+    filter: filter,
+  },
   reducers: {
     saveProducts: (state, action) => {
       state.products = [...action.payload.products];
+      state.filteredProducts = [...action.payload.products];
     },
     Fetched: (state, action) => {
       state.isFetched = action.payload;
+    },
+    increaseOffsetBy: (state, action) => {
+      state.offset += action.payload;
+    },
+    setFilterValues: (state, action) => {
+      const filteredProducts = state.products.filter((pro) => {
+        if (action.payload.length === 0) {
+          return state.products;
+        } else return action.payload.includes(pro.category);
+      });
+      state.filteredProducts = filteredProducts;
     },
   },
 });

@@ -1,6 +1,9 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import { productsAction } from "../../Store/productsSlice/slice";
-import { useAppDispatch } from "../../Store/reduxHooks.tsx/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../Store/reduxHooks.tsx/hooks";
 import getFullProducts from "./functions/getfullProducts";
 import product from "./types/Types";
 import { useEffect } from "react";
@@ -9,6 +12,9 @@ import Products from "./Products";
 
 const ProductsContainer: React.FC = () => {
   const dispatch = useAppDispatch();
+  const filteredProducts = useAppSelector(
+    (state) => state.productsSlice.filteredProducts
+  );
   const { data, error, isSuccess, isError }: UseQueryResult<product[]> =
     useQuery({
       queryKey: ["products"],
@@ -25,12 +31,11 @@ const ProductsContainer: React.FC = () => {
   if (isError) {
     return <div>Error: {error.message}</div>;
   }
-
   return (
     <>
       <main className="bg-lightestViolet/40 dark:bg-darkViolet  py-4">
         <Container>
-          <Products products={data!} />
+          <Products products={filteredProducts} />
         </Container>
       </main>
     </>

@@ -8,7 +8,7 @@ const ProductCard: React.FC<{ product: product }> = ({ product }) => {
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
       initial="hidden"
       animate="visible"
-      className="relative bg-white dark:bg-lightViolet ring-1 ring-lightestViolet dark:ring-black rounded-xl p-1  w-full sm:w-3/4 sm:mx-auto md:mx-0 md:w-[49.8%] lg:w-[24.7%]"
+      className="relative bg-white dark:bg-lightViolet ring-1 ring-lightestViolet dark:ring-black rounded-xl p-1  w-full"
       key={product.id}>
       <Product product={product} />
     </motion.div>
