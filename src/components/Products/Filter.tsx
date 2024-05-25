@@ -3,10 +3,13 @@ import { getCategories } from "./functions/getCategories";
 import Button from "../Button";
 import { useAppDispatch } from "../../Store/reduxHooks.tsx/hooks";
 import { productsAction } from "../../Store/productsSlice/slice";
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import { Container } from "../container/Container";
 
 const Filter = () => {
   const dispatch = useAppDispatch();
-
+  const formRef = useRef<HTMLFormElement>(null);
   const { data, isSuccess }: UseQueryResult<string[], Error> = useQuery<
     string[]
   >({
@@ -22,16 +25,29 @@ const Filter = () => {
       filterArr.push(value);
     }
     dispatch(productsAction.setFilterValues(filterArr));
+    dispatch(productsAction.setFilterIsOpen(false));
+  };
+  const ResetFilter = () => {
+    dispatch(productsAction.ResetFilter());
+    formRef.current?.reset();
+  };
+  const closeFilter = () => {
+    dispatch(productsAction.setFilterIsOpen(false));
   };
   return (
-    <div
+    <motion.div
+      variants={{ hidden: { y: -100, x: -100 }, visible: { x: 0, y: 0 } }}
+      initial="hidden"
+      animate="visible"
+      exit={{ opacity: 0, y: -10 }}
       id="filters"
-      className="my-2 ring-1 ring-lightViolet filter-container p-4 bg-white shadow-md rounded-lg flex justify-center">
+      className="absolute z-10 left-[2%]  w-[96%] ring-1 ring-lightViolet filter-container p-4 bg-white shadow-md rounded-lg flex justify-between">
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
         id="filter-form"
-        className="w-full flex gap-x-2 justify-between">
-        <fieldset className="filter-group flex flex-wrap">
+        className="w-full flex gap-x-2 justify-around">
+        <fieldset className="filter-group flex flex-wrap justify-start w-3/4">
           <legend className="font-semibold">Category</legend>
           {isSuccess &&
             data.map((e) => {
@@ -43,10 +59,29 @@ const Filter = () => {
               );
             })}
         </fieldset>
-        <button type="submit">Apply Filters</button>
-        <Button title="close" />
+        <div className="flex flex-col justify-between gap-y-4 font-handWrite">
+          <button
+            type="submit"
+            className="mt-[50%] -translate-y-[50%] bg-lightestViolet text-white py-2 rounded-md">
+            Apply Filters
+          </button>
+          <span className="flex gap-x-1">
+            <Button
+              variants="redButtonFree"
+              additionalStyles="ms-0 translate-x-0"
+              title="Reset"
+              onClick={ResetFilter}
+            />
+            <Button
+              variants="redButtonFree"
+              additionalStyles="ms-0 translate-x-0"
+              title="Close"
+              onClick={closeFilter}
+            />
+          </span>
+        </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

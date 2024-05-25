@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import ProductCard from "./ProductCard";
 import product from "./types/Types";
 import Button from "../Button";
@@ -11,17 +11,30 @@ import Filter from "./Filter";
 
 const Products: React.FC<{ products: product[] }> = ({ products }) => {
   const dispatch = useAppDispatch();
+  const filterIsOpen = useAppSelector(
+    (state) => state.productsSlice.filterIsOpen
+  );
   const showMore = () => {
     dispatch(productsAction.increaseOffsetBy(12));
   };
   const offset = useAppSelector((state) => state.productsSlice.offset);
+  const openFilter = () => {
+    dispatch(productsAction.setFilterIsOpen(true));
+  };
   return (
     <>
-      <Filter />
+      <AnimatePresence>{filterIsOpen && <Filter />}</AnimatePresence>
+      <Button
+        title="Filter"
+        onClick={openFilter}
+        additionalStyles="font-handWrite"
+      />
       <motion.ul
-        variants={{ visible: { transition: { staggerChildren: 0.09 } } }}
-        className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-        {products &&
+        variants={{ hidden: { y: 1 }, visible: { y: 0 } }}
+        initial="hidden"
+        animate="visible"
+        className={` w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2`}>
+        {products[0].price !== 0 &&
           products
             .filter((_, i) => i < offset)
             .map((product) => (

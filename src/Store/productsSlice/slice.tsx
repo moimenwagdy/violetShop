@@ -48,6 +48,7 @@ const productsSlice = createSlice({
     isFetched: false,
     offset: 12,
     filter: filter,
+    filterIsOpen: false,
   },
   reducers: {
     saveProducts: (state, action) => {
@@ -67,6 +68,13 @@ const productsSlice = createSlice({
         } else return action.payload.includes(pro.category);
       });
       state.filteredProducts = filteredProducts;
+    },
+    setFilterIsOpen: (state, action) => {
+      state.filterIsOpen = action.payload;
+    },
+    ResetFilter: (state) => {
+      state.filteredProducts = state.products;
+      state.filter = [];
     },
   },
 });

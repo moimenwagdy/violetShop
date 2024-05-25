@@ -8,7 +8,7 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
       variants={{ visible: { opacity: 1, scale: 1 } }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate="visible"
-      className="flex flex-col justify-between h-full p-2 bg-white ring-1 ring-lightestViolet dark:ring-black rounded-lg shadow-md dark:bg-simidarkViolet">
+    className="flex flex-col justify-between h-full p-2 bg-white ring-1 ring-lightestViolet dark:ring-black rounded-lg shadow-md dark:bg-simidarkViolet">
       <header className="w-full">
         <h2 className="text-simidarkViolet dark:text-white text-md font-handWrite font-bold text-center ">
           {product.title}

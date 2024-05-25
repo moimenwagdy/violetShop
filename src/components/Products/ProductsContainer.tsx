@@ -33,7 +33,7 @@ const ProductsContainer: React.FC = () => {
   }
   return (
     <>
-      <main className="bg-lightestViolet/40 dark:bg-darkViolet  py-4">
+      <main className="bg-lightestViolet/40 dark:bg-darkViolet py-4 relative">
         <Container>
           <Products products={filteredProducts} />
         </Container>

@@ -14,6 +14,10 @@ const Button: React.FC<{
       VariantsClasses =
         "ms-[50%] -translate-x-[50%] bg-subColor_4 text-white hover:bg-white hover:text-subColor_4 ";
       break;
+    case "redButtonFree":
+      VariantsClasses =
+        "bg-subColor_4 text-white hover:bg-white hover:text-subColor_4 ";
+      break;
     case "redButtonClose":
       VariantsClasses =
         "absolute bottom-5 left-5 text-center py-1 px-4 rounded-md font-basic bg-subColor_4 ";
