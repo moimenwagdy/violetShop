@@ -7,7 +7,7 @@ import {
 import getFullProducts from "./functions/getfullProducts";
 import product from "./types/Types";
 import { useEffect } from "react";
-import { Container } from "../container/Container";
+import { Container } from "../Container/Container";
 import Products from "./Products";
 
 const ProductsContainer: React.FC = () => {
@@ -15,12 +15,11 @@ const ProductsContainer: React.FC = () => {
   const filteredProducts = useAppSelector(
     (state) => state.productsSlice.filteredProducts
   );
-  const { data, error, isSuccess, isError }: UseQueryResult<product[]> =
-    useQuery({
-      queryKey: ["products"],
-      queryFn: getFullProducts,
-      staleTime: 600000,
-    });
+  const { data, isSuccess }: UseQueryResult<product[]> = useQuery({
+    queryKey: ["products"],
+    queryFn: getFullProducts,
+    staleTime: 600000,
+  });
   useEffect(() => {
     if (isSuccess) {
       dispatch(productsAction.saveProducts({ products: data }));
@@ -28,12 +27,9 @@ const ProductsContainer: React.FC = () => {
     }
   }, [isSuccess]);
 
-  if (isError) {
-    return <div>Error: {error.message}</div>;
-  }
   return (
     <>
-      <main className="bg-lightestViolet/40 dark:bg-darkViolet py-4 relative">
+      <main className="bg-midlightViolet/10 dark:bg-middarkViolet py-4 relative">
         <Container>
           <Products products={filteredProducts} />
         </Container>

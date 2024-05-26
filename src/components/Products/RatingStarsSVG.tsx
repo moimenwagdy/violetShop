@@ -1,13 +1,13 @@
-
-
-const RatingStarsSVG: React.FC<{ rating: number }> = ({ rating }) => {
+const RatingStarsSVG: React.FC<{
+  rating: number;
+}> = ({ rating }) => {
   const stars = [];
   for (let i = 0; i < 5; i++) {
     stars.push(
       <svg
         key={i}
         className={`h-4 w-4 fill-current ${
-          i < rating ? "text-yellow-500" : "text-white/30"
+          i < rating ? "text-yellow-500" : "text-stone-300"
         }`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20">

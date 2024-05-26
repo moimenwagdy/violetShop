@@ -17,6 +17,9 @@ export default {
         subColor_2: "#9f7db2",
         subColor_3: "#040404",
         subColor_4: "rgb(220, 38, 38)",
+        productLighBG: "rgb(254, 202, 202)",
+        productDarkBG: "rgb(191, 219 ,254)",
+        darkBasicBackground: "#252525",
       },
       fontFamily: {
         basic: "REM, sans-serif",
@@ -41,6 +44,6 @@ export default {
         "gradientt-r-to-l": "linear-gradient(90deg, #bf73f3, white, #daa5fa)",
       },
     },
-    plugins: [],
   },
+  plugins: [require("tailwind-scrollbar")],
 };
