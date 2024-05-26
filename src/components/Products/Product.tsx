@@ -30,7 +30,7 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
           </div>
           <img
             src={product.thumbnail}
-            className="bg-productLighBG dark:bg-productLighBG/50  w-36 h-36 object-cover rounded-lg drop-shadow-xl shadow-xl dark:shadow-black/20  "
+            className="bg-productLighBG dark:bg-lightViolet/50 w-36 h-36 object-cover rounded-lg drop-shadow-xl shadow-xl dark:shadow-black/20  "
             alt={product.title}
           />
         </div>

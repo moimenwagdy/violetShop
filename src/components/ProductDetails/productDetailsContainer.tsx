@@ -10,11 +10,11 @@ const productDetailsContainer: React.FC<{ product: product }> = ({
   const lg = "flex sm:flex-row sm:gap-x-10 sm:w-[90%]";
   const xs = "flex flex-col";
   return (
-    <main className="mt-32 lg:ms-40 md:ms-20">
+    <main className="mt-32 lg:ms-32 md:ms-20">
       <Container>
         <div className={`${xs} ${lg}`}>
           <Images images={product.images} />
-          <div>
+          <div className="mt-10">
             <div className="max-h-fit">
               <span className="w-full flex justify-center sm:justify-start items-start mt-4 ">
                 <ProductHeader product={product} />

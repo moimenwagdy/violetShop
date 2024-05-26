@@ -22,13 +22,17 @@ const Button: React.FC<{
       VariantsClasses =
         "absolute bottom-5 left-5 text-center py-1 px-4 rounded-md font-basic bg-subColor_4 ";
       break;
+    case "AddItem":
+      VariantsClasses =
+        "text-center py-1 px-4 rounded-md font-basic bg-subColor_4 text-white hover:scale-105 transition-all duration-200";
+      break;
     default:
       break;
   }
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-1 rounded-md  ${VariantsClasses} ${additionalStyles}`}>
+      className={`px-4 py-1 rounded-md   ${VariantsClasses} ${additionalStyles}`}>
       {title}
     </button>
   );

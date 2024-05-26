@@ -18,7 +18,7 @@ const MenuContainer: React.FC<{ children: ReactNode }> = ({ children }) => {
       animate="visible"
       exit="hidden"
       transition={{ stiffness: 75, type: "spring", damping: 18 }}
-      className="absolute top-0 right-0 z-10 h-screen
+      className="absolute top-0 right-0 z-10 h-[92vh] sm:h-screen
   w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-1">
       <ul
         className={`${!isSignUp ? "space-y-2" : ""} font-handWrite  rounded-md 

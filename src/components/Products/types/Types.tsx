@@ -35,3 +35,7 @@ export default interface product {
   rating: number;
   weight: number;
 }
+
+export interface ProductsError {
+  message: string;
+}

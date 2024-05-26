@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
-import { useAppDispatch, useAppSelector } from "../../../../../Store/reduxHooks.tsx/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../../Store/reduxHooks.tsx/hooks";
 import authorize from "../../../../../utilities/authorize";
 import { authorizationAction } from "../../../../../Store/authorizationSlice/authorization";
 import { AxiosError } from "axios";
@@ -41,7 +44,8 @@ const useNavForm = () => {
     { target: string; email: string; password: string; name: string }
   > = useMutation({
     mutationKey: [target],
-    mutationFn: ({ target, email, password, name }) => authorize(target, email, password, name),
+    mutationFn: ({ target, email, password, name }) =>
+      authorize(target, email, password, name),
   });
 
   const handleChange = useCallback(
@@ -86,12 +90,21 @@ const useNavForm = () => {
     errorTitle = error.response.data.errors.credentials!;
   }
   if (isError && isSignUp && error.response?.status === 422) {
-    errorTitle = error.response?.data.errors.email! || error.response?.data.errors.password!;
+    errorTitle =
+      error.response?.data.errors.email! ||
+      error.response?.data.errors.password!;
   }
 
   const resetForm = () => {
     formRef.current?.reset();
-    dispatch(authorizationAction.setResponseData({ email: "", name: "", token: "", id: "" }));
+    dispatch(
+      authorizationAction.setResponseData({
+        email: "",
+        name: "",
+        token: "",
+        id: "",
+      })
+    );
     setFormData({
       email: "",
       name: "",

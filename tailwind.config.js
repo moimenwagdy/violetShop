@@ -37,11 +37,13 @@ export default {
       },
       animation: {
         darkgradient: "darkgradient 20s ease-in-out infinite",
-        lightgradient: "lightgradient 20s ease-in-out infinite",
+        lightgradient: "lightgradient 60s ease-in-out infinite",
       },
       backgroundImage: {
-        "gradient-r-to-l": "linear-gradient(90deg, #200e30, grey, #5b2d84)",
-        "gradientt-r-to-l": "linear-gradient(90deg, #bf73f3, white, #daa5fa)",
+        "gradient-r-to-l":
+          "linear-gradient(90deg, transparent,#200e30, grey, #5b2d84,transparent)",
+        "gradientt-r-to-l":
+          "linear-gradient(90deg, transparent,#bf73f3, white, #daa5fa,transparent)",
       },
     },
   },

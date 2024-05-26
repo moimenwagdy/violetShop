@@ -3,7 +3,6 @@ import Product from "./Product";
 import product from "./types/Types";
 
 const ProductCard: React.FC<{ product: product }> = ({ product }) => {
- 
   return (
     <motion.div
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
@@ -12,8 +11,8 @@ const ProductCard: React.FC<{ product: product }> = ({ product }) => {
       className="cursor-pointer hover:scale-[.99] 
       transition-transform 
       duration-75 relative bg-white
-    dark:bg-lightViolet ring-1 ring-lightestViolet 
-    dark:ring-black rounded-xl p-1  w-full"
+     ring-1 dark:ring-2 ring-lightestViolet 
+    dark:ring-middarkViolet rounded-xl p-1  w-full"
       key={product.id}>
       <Product product={product} />
     </motion.div>

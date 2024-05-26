@@ -8,7 +8,7 @@ export default async function getFullProducts(): Promise<product[]> {
     console.log(fullArr);
     return fullArr;
   } catch (error) {
-    console.error(error);
-    return [];
+    throw error;
   }
 }
+

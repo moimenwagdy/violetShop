@@ -41,12 +41,15 @@ const Filter = () => {
   };
   return (
     <motion.div
-      variants={{ hidden: { y: -100, x: -100 }, visible: { x: 0, y: 0 } }}
+      variants={{
+        hidden: { opacity: 0, y: -10 },
+        visible: { opacity: 1, y: 0, transition: { stiffness: 75 } },
+      }}
       initial="hidden"
       animate="visible"
       exit={{ opacity: 0, y: -10 }}
       id="filters"
-      className="absolute z-10 left-[2%]  w-[96%] ring-1 ring-black dark:ring-white p-4 bg-white dark:bg-stone-700 dark:text-white font-handWrite shadow-md rounded-lg flex justify-between">
+      className="absolute z-10 left-[2%] top-[1%] w-[96%] ring-1 ring-black dark:ring-white p-4 bg-white dark:bg-stone-700 dark:text-white font-handWrite shadow-md rounded-lg flex justify-between">
       <form
         ref={formRef}
         onSubmit={handleSubmit}

@@ -12,7 +12,7 @@ const Navbar = () => {
   const { darkMoodToggler } = useDarkMoodToggler();
   const isOpen = useAppSelector((state) => state.siteMapSlice.isOpen);
   return (
-    <nav className="z-50 mb-2 fixed top-0 w-full h-20 bg-lightViolet dark:bg-middarkViolet/80 ">
+    <nav className="z-50 mb-2 fixed top-0 w-full h-20 animate-lightgradient bg-gradientt-r-to-l bg-[length:500%_500%]  dark:bg-gradient-to-r dark:from-lightViolet dark:via-lightViolet dark:to-middarkViolet rounded-br-3xl rounded-bl-3xl ">
       <Container>
         <aside className="h-full flex justify-between items-center">
           <Logo />
@@ -23,7 +23,7 @@ const Navbar = () => {
         </aside>
         <AnimatePresence>{isOpen && <MenuItems />}</AnimatePresence>
       </Container>
-      <span className="absolute z-0 -bottom-1 w-full h-2 bg-gradientt-r-to-l dark:bg-gradient-r-to-l bg-[length:500%_500%] dark:bg-[length:500%_500%] dark:animate-darkgradient animate-lightgradient"></span>
+      {/* <span className="absolute z-0 -bottom-3 w-full h-3 bg-gradientt-r-to-l dark:bg-gradient-r-to-l bg-[length:500%_500%] dark:bg-[length:500%_500%] dark:animate-darkgradient animate-lightgradient"></span> */}
     </nav>
   );
 };
