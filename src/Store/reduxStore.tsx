@@ -3,6 +3,7 @@ import productsSlice from "./productsSlice/slice";
 import darkMoodSlice from "./darkMoodSlice/darkMoodSlice";
 import siteMapSlice from "./siteMapSlice/siteMapSlice";
 import authorization from "./authorizationSlice/authorization";
+import productsDetails from "./ProductsDetailsSlice/ProductsDetailsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     darkMoodSlice: darkMoodSlice.reducer,
     siteMapSlice: siteMapSlice.reducer,
     authorization: authorization.reducer,
+    productsDetails: productsDetails.reducer,
   },
 });
 

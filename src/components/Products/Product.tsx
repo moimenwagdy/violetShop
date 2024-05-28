@@ -2,10 +2,14 @@ import { motion } from "framer-motion";
 import RatingStarsSVG from "./RatingStarsSVG";
 import product from "./types/Types";
 import { useNavigate } from "react-router";
+import { useAppDispatch } from "../../Store/reduxHooks.tsx/hooks";
+import { productsDetailsActions } from "../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
 
 const Product: React.FC<{ product: product }> = ({ product }) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const navigateTo = () => {
+    dispatch(productsDetailsActions.resetReviewsOffset());
     navigate(`/productDetails/${product.id}`);
   };
   return (
@@ -14,7 +18,7 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
       variants={{ visible: { opacity: 1, scale: 1 } }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate="visible"
-      className="flex flex-col justify-between h-full p-2 bg-white ring-1 ring-lightestViolet dark:ring-black rounded-lg shadow-md dark:bg-simidarkViolet">
+      className="flex flex-col justify-between h-full p-2 bg-white rin ring-lightestViolet dark:ring-darkViolet/50 rounded-lg shadow-md dark:bg-middarkViolet">
       <header className="w-full">
         <h2 className="text-simidarkViolet dark:text-white text-md font-handWrite font-bold text-center ">
           {product.title}

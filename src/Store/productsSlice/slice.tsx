@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import product from "../../components/Products/types/Types";
+import product, { reviews } from "../../components/Products/types/Types";
 
 const init: product[] = [
   {
@@ -39,6 +39,8 @@ interface st {
   filter: string;
 }
 const filter: st[] = [];
+
+const updatedReviews: reviews[] = [];
 
 const selectedProduct: product = {
   availabilityStatus: "",
@@ -83,21 +85,20 @@ const productsSlice = createSlice({
     filter: filter,
     filterIsOpen: false,
     selectedProduct: selectedProduct,
+    updatedReviews: updatedReviews,
   },
   reducers: {
     saveProducts: (state, action) => {
-      
-        const newArr = [...action.payload.products];
-        const shuffledArray = Array.from({ length: newArr.length }, (_, i) => i)
-          .sort(() => Math.random() - 0.5)
-          .map((i) => newArr[i]);
-        state.products = shuffledArray;
-        state.filteredProducts = [...shuffledArray];
-        const rr = shuffledArray.filter((e) => {
-          return e.images.length === 6;
-        });
-        console.log(rr);
-      
+      const newArr = [...action.payload.products];
+      const shuffledArray = Array.from({ length: newArr.length }, (_, i) => i)
+        .sort(() => Math.random() - 0.5)
+        .map((i) => newArr[i]);
+      state.products = shuffledArray;
+      state.filteredProducts = [...shuffledArray];
+      const rr = shuffledArray.filter((e) => {
+        return e.reviews.length === 3;
+      });
+      console.log(rr);
     },
     Fetched: (state, action) => {
       state.isFetched = action.payload;
@@ -125,6 +126,11 @@ const productsSlice = createSlice({
         return product.id === Number(action.payload);
       });
       state.selectedProduct = selectedItem!;
+
+      state.updatedReviews = [...selectedItem?.reviews!];
+    },
+    updateReview: (state, action: { payload: reviews }) => {
+      state.updatedReviews = [...state.updatedReviews, action.payload];
     },
   },
 });

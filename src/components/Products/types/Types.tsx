@@ -1,11 +1,11 @@
-interface reviews {
+export interface reviews {
   comment: string;
   date: string;
   rating: number;
   reviewerEmail: string;
   reviewerName: string;
 }
-interface meta {
+export interface meta {
   createdAt: string;
   updatedAt: string;
   barcode: string;

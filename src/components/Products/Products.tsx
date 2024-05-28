@@ -7,7 +7,6 @@ import {
   useAppSelector,
 } from "../../Store/reduxHooks.tsx/hooks";
 import { productsAction } from "../../Store/productsSlice/slice";
-import Filter from "./Filter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowAltCircleUp,
@@ -16,9 +15,6 @@ import {
 
 const Products: React.FC<{ products: product[] }> = ({ products }) => {
   const dispatch = useAppDispatch();
-  const filterIsOpen = useAppSelector(
-    (state) => state.productsSlice.filterIsOpen
-  );
 
   const showMore = () => {
     dispatch(productsAction.increaseOffsetBy(12));
@@ -33,17 +29,16 @@ const Products: React.FC<{ products: product[] }> = ({ products }) => {
   };
   return (
     <>
-      <AnimatePresence>{filterIsOpen && <Filter />}</AnimatePresence>
       <span className="-space-x-1 flex justify-start items-center">
         <Button
           title="Filter"
           onClick={openFilter}
-          additionalStyles="font-handWrite dark:text-white"
+          additionalStyles="font-handWrite"
         />
         <FontAwesomeIcon
           onClick={openFilter}
           icon={faArrowDownShortWide}
-          className="text-black dark:text-white cursor-pointer"
+          className="text-black  cursor-pointer"
         />
       </span>
       <motion.ul
@@ -68,7 +63,7 @@ const Products: React.FC<{ products: product[] }> = ({ products }) => {
       {offset > 12 && (
         <FontAwesomeIcon
           onClick={toTop}
-          className="text-subColor_4 dark:text-white cursor-pointer text-3xl absolute bottom-4 animate-bounce right-[2%]"
+          className="text-subColor_4  cursor-pointer text-3xl absolute bottom-4 animate-bounce right-[2%]"
           icon={faArrowAltCircleUp}
         />
       )}

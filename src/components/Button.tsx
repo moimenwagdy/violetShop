@@ -3,7 +3,8 @@ const Button: React.FC<{
   onClick?: () => void;
   variants?: string;
   additionalStyles?: string;
-}> = ({ onClick, title, variants, additionalStyles }) => {
+  disabled?: boolean;
+}> = ({ onClick, title, variants, additionalStyles, disabled }) => {
   let VariantsClasses;
   switch (variants) {
     case "basic":
@@ -31,8 +32,9 @@ const Button: React.FC<{
   }
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
-      className={`px-4 py-1 rounded-md   ${VariantsClasses} ${additionalStyles}`}>
+      className={`px-4 py-1 rounded-md  disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:text-black/50 disabled:hover:text-black/50  ${VariantsClasses} ${additionalStyles}`}>
       {title}
     </button>
   );

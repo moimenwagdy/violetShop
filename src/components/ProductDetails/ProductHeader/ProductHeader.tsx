@@ -1,5 +1,5 @@
-import RatingStarsSVG from "../Products/RatingStarsSVG";
-import product from "../Products/types/Types";
+import RatingStarsSVG from "../../Products/RatingStarsSVG";
+import product from "../../Products/types/Types";
 
 const ProductHeader: React.FC<{ product: product }> = ({ product }) => {
   const afterDisscount =

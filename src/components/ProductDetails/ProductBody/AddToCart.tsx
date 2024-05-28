@@ -1,4 +1,4 @@
-import Button from "../Button";
+import Button from "../../Button";
 
 const AddToCart: React.FC<{ productID: number }> = ({ productID }) => {
   function addToCart() {
