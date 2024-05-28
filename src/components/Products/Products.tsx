@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
 import product from "./types/Types";
 import Button from "../Button";
