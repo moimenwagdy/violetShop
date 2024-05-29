@@ -81,6 +81,7 @@ const productsSlice = createSlice({
     products: init,
     filteredProducts: init,
     isFetched: false,
+    allowFetch: true,
     offset: 12,
     filter: filter,
     filterIsOpen: false,
@@ -88,7 +89,7 @@ const productsSlice = createSlice({
     updatedReviews: updatedReviews,
   },
   reducers: {
-    saveProducts: (state, action) => {
+    saveProducts: (state, action: { payload: { products: product[] } }) => {
       const newArr = [...action.payload.products];
       const shuffledArray = Array.from({ length: newArr.length }, (_, i) => i)
         .sort(() => Math.random() - 0.5)
@@ -96,21 +97,26 @@ const productsSlice = createSlice({
       state.products = shuffledArray;
       state.filteredProducts = [...shuffledArray];
       const rr = shuffledArray.filter((e) => {
-        return e.reviews.length === 3;
+        return e.id === 2;
       });
-      console.log(rr);
+      state.isFetched = true;
+      state.allowFetch = false;
     },
-    Fetched: (state, action) => {
-      state.isFetched = action.payload;
+    dontAllowFetch: (state) => {
+      state.allowFetch = false;
     },
     increaseOffsetBy: (state, action) => {
-      state.offset += action.payload;
+      if (state.filteredProducts.length <= 12) {
+        return;
+      } else state.offset += action.payload;
     },
     setFilterValues: (state, action) => {
-      const filteredProducts = state.products.filter((pro) => {
+      const filteredProducts = state.products.filter((product) => {
         if (action.payload.length === 0) {
           return state.products;
-        } else return action.payload.includes(pro.category);
+        } else {
+          return action.payload.includes(product.category);
+        }
       });
       state.filteredProducts = filteredProducts;
     },
@@ -122,15 +128,35 @@ const productsSlice = createSlice({
       state.filter = [];
     },
     getSelectedProduct: (state, action) => {
-      const selectedItem = state.products.find((product) => {
+      const selectedItem = state.filteredProducts.find((product) => {
         return product.id === Number(action.payload);
       });
       state.selectedProduct = selectedItem!;
-
-      state.updatedReviews = [...selectedItem?.reviews!];
     },
-    updateReview: (state, action: { payload: reviews }) => {
-      state.updatedReviews = [...state.updatedReviews, action.payload];
+    updateReview: (
+      state,
+      action: { payload: { reviews: reviews; productID: number } }
+    ) => {
+      const { reviews: newReview, productID } = action.payload;
+
+      const updateReviews = (products: product[]) =>
+        products.map((product) =>
+          product.id === productID
+            ? { ...product, reviews: [...product.reviews, newReview] }
+            : product
+        );
+
+      state.products = updateReviews(state.products);
+      state.filteredProducts = updateReviews(state.filteredProducts);
+
+      if (state.selectedProduct.id === productID) {
+        state.selectedProduct = {
+          ...state.selectedProduct,
+          reviews: [...state.selectedProduct.reviews, newReview],
+        };
+      }
+
+      state.updatedReviews = [...state.updatedReviews, newReview];
     },
   },
 });

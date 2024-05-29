@@ -6,7 +6,6 @@ import ProductStock from "./ProductInfoStock";
 import ProductShippingReturn from "./ProductShippingReturn";
 
 const ProductInfo: React.FC<{ product: product }> = ({ product }) => {
-  console.log(product);
   return (
     <div className="w-full mx-auto flex flex-col gap-y-4">
       <ProductHeader />

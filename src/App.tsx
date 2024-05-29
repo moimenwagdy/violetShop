@@ -1,11 +1,14 @@
-import { useDarkMoodToggler } from "./utilities/useDarkMoodToggler";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { RouterProvider } from "react-router";
+import { queryClient } from "./utilities/QueryClient/tanStackQuery";
+import { route } from "./route/routes";
 
 function App() {
-  const { darkMoodToggler } = useDarkMoodToggler();
-
   return (
     <>
-      <button onClick={darkMoodToggler}>toggle</button>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={route}></RouterProvider>
+      </QueryClientProvider>
     </>
   );
 }

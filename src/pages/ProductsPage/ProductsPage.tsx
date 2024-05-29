@@ -1,55 +1,34 @@
 import ProductsContainer from "../../components/Products/ProductsContainer";
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import { productsAction } from "../../Store/productsSlice/slice";
+
+import "../../Store/reduxHooks.tsx/hooks";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../Store/reduxHooks.tsx/hooks";
-import { useEffect } from "react";
-import { AxiosError } from "axios";
+import { productsAction } from "../../Store/productsSlice/slice";
 import product, { ProductsError } from "../../components/Products/types/Types";
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import getFullProducts from "../../components/Products/functions/getfullProducts";
-
+import { AxiosError } from "axios";
+import { useEffect } from "react";
 const ProductsPage = () => {
-  const dispatch = useAppDispatch();
-  const filteredProducts = useAppSelector(
-    (state) => state.productsSlice.filteredProducts
-  );
+  const allowFetch = useAppSelector((state) => state.productsSlice.allowFetch);
   const {
     data,
     isSuccess,
-    isError,
-    error,
-    isFetched,
-    fetchStatus,
   }: UseQueryResult<product[], AxiosError<ProductsError>> = useQuery({
     queryKey: ["products"],
     queryFn: getFullProducts,
-    staleTime: 600000,
+    enabled: allowFetch === true,
   });
-
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    if (isFetched) {
-      isSuccess && console.log(isError);
-      isError && console.log(isSuccess);
-      fetchStatus;
-      if (isSuccess) {
-        dispatch(productsAction.saveProducts({ products: data }));
-        dispatch(productsAction.Fetched(true));
-      } else if (isError) {
-        console.error("Error occurred:", error);
-      }
-    }
-  }, [isFetched, isSuccess, isError, error]);
-  isError && console.log(error.response?.data);
-  return (
-    <ProductsContainer
-      isError={isError}
-      isSuccess={isSuccess}
-      products={filteredProducts}
-      error={error!}
-    />
-  );
+    isSuccess &&
+      allowFetch &&
+      dispatch(productsAction.saveProducts({ products: data! }));
+  }, [allowFetch, dispatch, isSuccess]);
+
+  return <ProductsContainer />;
 };
 
 export default ProductsPage;

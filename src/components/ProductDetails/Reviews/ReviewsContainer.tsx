@@ -8,8 +8,12 @@ import Button from "../../Button";
 import Reviews from "./Reviews";
 import { reviews } from "../../Products/types/Types";
 import { productsAction } from "../../../Store/productsSlice/slice";
+import { NavFormInput } from "../../Navbar/Menu/NavForm/NavFormInput";
 
-const ReviewsContainer: React.FC<{ reviews: reviews[] }> = ({ reviews }) => {
+const ReviewsContainer: React.FC<{
+  reviews: reviews[];
+  productID: number;
+}> = ({ reviews, productID }) => {
   const [comment, setComment] = useState<string>("");
   const ReviewsOffset = useAppSelector(
     (state) => state.productsDetails.reviewsOffset
@@ -38,7 +42,13 @@ const ReviewsContainer: React.FC<{ reviews: reviews[] }> = ({ reviews }) => {
         day: "numeric",
       }),
     };
-    comment && dispatch(productsAction.updateReview(newReview));
+    comment &&
+      dispatch(
+        productsAction.updateReview({
+          reviews: newReview,
+          productID: productID,
+        })
+      );
   };
 
   return (
@@ -55,8 +65,14 @@ const ReviewsContainer: React.FC<{ reviews: reviews[] }> = ({ reviews }) => {
       </span>
       {!userReviewed ? (
         <form onSubmit={addReview}>
-          <input onChange={handleChange} type="text" />
-          <button>add review</button>
+          <NavFormInput
+            onChange={handleChange}
+            type="text"
+            id={""}
+            title={"Add Review"}
+            name={""}
+          />
+          <Button title="add review" variants="redButtonFree" />
         </form>
       ) : (
         <p>You Rviwed this item</p>

@@ -11,8 +11,7 @@ const ProductCard: React.FC<{ product: product }> = ({ product }) => {
       className="cursor-pointer hover:scale-[.99] 
       transition-transform 
       duration-75 relative bg-white dark:bg-transparent
-     ring-1 dark:ring-2 ring-lightestViolet 
-    dark:ring-middarkViolet rounded-xl p-1  w-full"
+     rounded p-2 dark:p-1 w-full"
       key={product.id}>
       <Product product={product} />
     </motion.div>

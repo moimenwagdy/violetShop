@@ -18,7 +18,7 @@ const Navbar = () => {
           <Logo />
           <button onClick={darkMoodToggler}>Toogle</button>
           <NavLink to="/products">prod</NavLink>
-          {/* <NavLink to="/home">home</NavLink> */}
+          <NavLink to="/home">home</NavLink>
           <MenuIcon />
         </aside>
         <AnimatePresence>{isOpen && <MenuItems />}</AnimatePresence>

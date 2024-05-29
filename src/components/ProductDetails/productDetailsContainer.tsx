@@ -5,8 +5,8 @@ import ProductHeader from "./ProductHeader/ProductHeader";
 import Images from "./ImagesComponent/Images";
 import ProductInfo from "./ProductInfo/ProductInfo";
 import ReviewsContainer from "./Reviews/ReviewsContainer";
-import { useAppSelector } from "../../Store/reduxHooks.tsx/hooks";
-import { useEffect } from "react";
+// import { useAppSelector } from "../../Store/reduxHooks.tsx/hooks";
+// import { useEffect } from "react";
 
 const productDetailsContainer: React.FC<{ product: product }> = ({
   product,
@@ -14,10 +14,10 @@ const productDetailsContainer: React.FC<{ product: product }> = ({
   const lg = "flex sm:flex-row sm:gap-x-5 md:gap-x-10 sm:w-[90%]  ";
   const xs = "flex flex-col";
 
-  const reviews = useAppSelector((state) => state.productsSlice.updatedReviews);
-  useEffect(() => {
-    console.log(reviews);
-  });
+  // const reviews = useAppSelector((state) => state.productsSlice.updatedReviews);
+  // useEffect(() => {
+  //   console.log(reviews);
+  // });
   return (
     <main className="mt-32">
       <Container>
@@ -37,7 +37,10 @@ const productDetailsContainer: React.FC<{ product: product }> = ({
             <ProductInfo product={product} />
           </article>
           <section className="mt-4">
-            <ReviewsContainer reviews={reviews} />
+            <ReviewsContainer
+              productID={product.id}
+              reviews={product.reviews}
+            />
           </section>
         </section>
       </Container>

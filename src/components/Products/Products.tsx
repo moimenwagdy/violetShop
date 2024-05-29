@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
-import product from "./types/Types";
 import Button from "../Button";
 import {
   useAppDispatch,
@@ -13,20 +12,28 @@ import {
   faArrowDownShortWide,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Products: React.FC<{ products: product[] }> = ({ products }) => {
+const Products: React.FC = () => {
   const dispatch = useAppDispatch();
-
-  const showMore = () => {
-    dispatch(productsAction.increaseOffsetBy(12));
-  };
+  //
+  const filteredProducts = useAppSelector(
+    (state) => state.productsSlice.filteredProducts
+  );
+  const ArrayIsNotEmpty = filteredProducts.length > 1;
+  //
   const offset = useAppSelector((state) => state.productsSlice.offset);
+  const showUpArrow = offset > 12;
+  //
   const openFilter = () => {
     dispatch(productsAction.setFilterIsOpen(true));
+  };
+  const showMore = () => {
+    dispatch(productsAction.increaseOffsetBy(12));
   };
   const toTop = () => {
     dispatch(productsAction.increaseOffsetBy(-offset + 12));
     scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
     <>
       <span className="-space-x-1 flex justify-start items-center">
@@ -46,9 +53,9 @@ const Products: React.FC<{ products: product[] }> = ({ products }) => {
         initial="hidden"
         animate="visible"
         className={`relative w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2`}>
-        {products &&
-          products[0]?.price !== 0 &&
-          products
+        {filteredProducts &&
+          ArrayIsNotEmpty &&
+          filteredProducts
             .filter((_, i) => i < offset)
             .map((product) => (
               <ProductCard key={product.id} product={product} />
@@ -60,7 +67,7 @@ const Products: React.FC<{ products: product[] }> = ({ products }) => {
         additionalStyles="mt-2"
         onClick={showMore}
       />
-      {offset > 12 && (
+      {showUpArrow && (
         <FontAwesomeIcon
           onClick={toTop}
           className="text-subColor_4  cursor-pointer text-3xl absolute bottom-4 animate-bounce right-[2%]"
