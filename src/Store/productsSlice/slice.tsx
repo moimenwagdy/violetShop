@@ -96,9 +96,9 @@ const productsSlice = createSlice({
         .map((i) => newArr[i]);
       state.products = shuffledArray;
       state.filteredProducts = [...shuffledArray];
-      const rr = shuffledArray.filter((e) => {
-        return e.id === 2;
-      });
+      // const rr = shuffledArray.filter((e) => {
+      //   return e.id === 2;
+      // });
       state.isFetched = true;
       state.allowFetch = false;
     },
