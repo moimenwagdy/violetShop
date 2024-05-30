@@ -30,9 +30,11 @@ const Filter = () => {
     }
     dispatch(productsAction.setFilterValues(filterArr));
     dispatch(productsAction.setFilterIsOpen(false));
+    const isNotEmpty = filterArr.length !== 0;
+    isNotEmpty && dispatch(productsAction.setIsFiltring(true));
   };
   const ResetFilter = () => {
-    dispatch(productsAction.ResetFilter());
+    dispatch(productsAction.setFilterValues(""));
     formRef.current?.reset();
     dispatch(productsAction.increaseOffsetBy(-filterOffset + 12));
   };

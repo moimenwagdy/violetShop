@@ -1,44 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import product, { reviews } from "../../components/Products/types/Types";
 
-const init: product[] = [
-  {
-    availabilityStatus: "",
-    brand: "",
-    category: "",
-    dimensions: {
-      width: 0,
-      height: 0,
-      depth: undefined,
-    },
-    discountPercentage: 0,
-    id: 0,
-    images: [],
-    meta: {
-      createdAt: "",
-      updatedAt: "",
-      barcode: "",
-      qrCode: "",
-    },
-    minimumOrderQuantity: 0,
-    returnPolicy: "",
-    description: "",
-    reviews: [],
-    shippingInformation: "",
-    stock: 0,
-    tags: [],
-    thumbnail: "",
-    title: "",
-    warrantyInformation: "",
-    price: 0,
-    rating: 0,
-    weight: 0,
-  },
-];
-interface st {
-  filter: string;
-}
-const filter: st[] = [];
+const init: product[] = [];
 
 const updatedReviews: reviews[] = [];
 
@@ -80,12 +43,12 @@ const productsSlice = createSlice({
   initialState: {
     products: init,
     filteredProducts: init,
-    isFetched: false,
-    allowFetch: true,
-    offset: 12,
-    filter: filter,
-    filterIsOpen: false,
     selectedProduct: selectedProduct,
+    filterIsOpen: false,
+    isFiltering: false,
+    allowFetch: true,
+    isFetched: false,
+    offset: 12,
     updatedReviews: updatedReviews,
   },
   reducers: {
@@ -123,10 +86,6 @@ const productsSlice = createSlice({
     setFilterIsOpen: (state, action) => {
       state.filterIsOpen = action.payload;
     },
-    ResetFilter: (state) => {
-      state.filteredProducts = state.products;
-      state.filter = [];
-    },
     getSelectedProduct: (state, action) => {
       const selectedItem = state.filteredProducts.find((product) => {
         return product.id === Number(action.payload);
@@ -157,6 +116,9 @@ const productsSlice = createSlice({
       }
 
       state.updatedReviews = [...state.updatedReviews, newReview];
+    },
+    setIsFiltring: (state, action) => {
+      state.isFiltering = action.payload;
     },
   },
 });

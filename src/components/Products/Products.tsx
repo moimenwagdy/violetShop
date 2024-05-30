@@ -18,6 +18,9 @@ const Products: React.FC = () => {
   const filteredProducts = useAppSelector(
     (state) => state.productsSlice.filteredProducts
   );
+  const isFiltering = useAppSelector(
+    (state) => state.productsSlice.isFiltering
+  );
   const ArrayIsNotEmpty = filteredProducts.length > 1;
   //
   const offset = useAppSelector((state) => state.productsSlice.offset);
@@ -33,20 +36,35 @@ const Products: React.FC = () => {
     dispatch(productsAction.increaseOffsetBy(-offset + 12));
     scrollTo({ top: 0, behavior: "smooth" });
   };
+  const resetFiler = () => {
+    dispatch(productsAction.setFilterValues(""));
+    dispatch(productsAction.setIsFiltring(false));
+    scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
-      <span className="-space-x-1 flex justify-start items-center">
-        <Button
-          title="Filter"
-          onClick={openFilter}
-          additionalStyles="font-handWrite"
-        />
-        <FontAwesomeIcon
-          onClick={openFilter}
-          icon={faArrowDownShortWide}
-          className="text-black  cursor-pointer"
-        />
+      <span className=" flex justify-between items-center">
+        <div className="-space-x-1">
+          <Button
+            title="Filter"
+            onClick={openFilter}
+            additionalStyles="font-handWrite"
+          />
+          <FontAwesomeIcon
+            onClick={openFilter}
+            icon={faArrowDownShortWide}
+            className="text-black  cursor-pointer"
+          />
+        </div>
+        {isFiltering && (
+          <Button
+            title="Reset"
+            variants="redButtonFree"
+            onClick={resetFiler}
+            additionalStyles="mx-4 px-1 py-0 text-xs  "
+          />
+        )}
       </span>
       <motion.ul
         variants={{ hidden: { y: 1 }, visible: { y: 0 } }}
