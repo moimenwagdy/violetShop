@@ -1,14 +1,17 @@
 const RatingStarsSVG: React.FC<{
-  rating: number;
-}> = ({ rating }) => {
+  rating?: number;
+  onClick?: (i: number) => void;
+  additionalStyles?: string;
+}> = ({ rating, onClick, additionalStyles }) => {
   const stars = [];
   for (let i = 0; i < 5; i++) {
     stars.push(
       <svg
+        onClick={() => onClick && onClick(i + 1)}
         key={i}
         className={`h-4 w-4 fill-current ${
-          i < rating ? "text-yellow-500" : "text-stone-300"
-        }`}
+          rating && i < rating ? "text-yellow-500" : "text-black/50"
+        } ${additionalStyles ? additionalStyles : ""}`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20">
         <path

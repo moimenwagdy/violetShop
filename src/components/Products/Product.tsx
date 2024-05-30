@@ -10,6 +10,7 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
   const navigate = useNavigate();
   const navigateTo = () => {
     dispatch(productsDetailsActions.resetReviewsOffset());
+    dispatch(productsDetailsActions.setUserRateValue(0));
     navigate(`/productDetails/${product.id}`);
   };
   return (

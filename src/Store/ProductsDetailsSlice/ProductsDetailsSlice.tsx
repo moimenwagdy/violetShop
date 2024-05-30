@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-export interface darkMoood {
+export interface reviewsOffset {
   reviewsOffset: number;
+  userRateValue: number;
 }
 
-const init: darkMoood = { reviewsOffset: 1 };
+const init: reviewsOffset = { reviewsOffset: 1, userRateValue: 0 };
 
 const productsDetails = createSlice({
   name: "productsDetails",
@@ -11,11 +12,14 @@ const productsDetails = createSlice({
   reducers: {
     setReviewsOffset: (state) => {
       if (state.reviewsOffset > 3) {
-        state.reviewsOffset = 3
+        state.reviewsOffset = 3;
       } else state.reviewsOffset += 1;
     },
     resetReviewsOffset: (state) => {
       state.reviewsOffset = 1;
+    },
+    setUserRateValue: (state, actions) => {
+      state.userRateValue = actions.payload;
     },
   },
 });
