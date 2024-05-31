@@ -3,7 +3,6 @@ import { reviews } from "../../Products/types/Types";
 
 const ReviewItem: React.FC<{ review: reviews; index: boolean }> = ({
   review,
-  index,
 }) => {
   let modefiedDate = new Date(review.date).toLocaleDateString("en-us", {
     year: "numeric",
