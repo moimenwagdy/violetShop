@@ -5,8 +5,7 @@ import ProductHeader from "./ProductHeader/ProductHeader";
 import Images from "./ImagesComponent/Images";
 import ProductInfo from "./ProductInfo/ProductInfo";
 import ReviewsContainer from "./Reviews/ReviewsContainer";
-// import { useAppSelector } from "../../Store/reduxHooks.tsx/hooks";
-// import { useEffect } from "react";
+import ProductsSuggetions from "./ProductsSuggetions";
 
 const productDetailsContainer: React.FC<{ product: product }> = ({
   product,
@@ -19,7 +18,7 @@ const productDetailsContainer: React.FC<{ product: product }> = ({
       <Container>
         <section className="flex flex-col w-full h-full">
           <aside className={`${xs} ${lg} mx-auto sm:mx-0`}>
-            <Images images={product?.images} />
+            <Images key={product.id} images={product.images} />
             <div className="mt-10 w-full">
               <div className="max-h-fit">
                 <span className="w-full flex justify-center sm:justify-start items-start mt-4 ">
@@ -32,11 +31,17 @@ const productDetailsContainer: React.FC<{ product: product }> = ({
           <article className="mt-10 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%] mx-auto">
             <ProductInfo product={product} />
           </article>
-          <section className="mt-4">
+          <aside className="mt-4">
             <ReviewsContainer
               productID={product.id}
               reviews={product.reviews}
             />
+          </aside>
+          <section className="flex flex-col justify-center gap-y-12 items-center mt-32">
+            <p className="text-lightViolet font-handWrite">
+              Products You May Like
+            </p>
+            <ProductsSuggetions category={product.category} />
           </section>
         </section>
       </Container>

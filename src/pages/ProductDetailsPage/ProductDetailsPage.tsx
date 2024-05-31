@@ -13,7 +13,7 @@ const ProductDetailsPage = () => {
   const selectedProduct = useAppSelector(
     (state) => state.productsSlice.selectedProduct
   );
-  console.log(selectedProduct);
+
   return <ProductDetailsContainer product={selectedProduct!} />;
 };
 

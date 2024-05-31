@@ -54,7 +54,7 @@ const ReviewForm = () => {
       onSubmit={addReview}>
       <span className="-mb-4">
         <RateItemStars />
-        <p className="text-xs">rate this item</p>
+        {userRate === 0 && <p className="text-xs">rate this item</p>}
       </span>
       <NavFormInput
         onChange={handleChange}

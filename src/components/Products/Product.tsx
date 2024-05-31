@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import RatingStarsSVG from "./RatingStarsSVG";
 import product from "./types/Types";
-import { useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { useAppDispatch } from "../../Store/reduxHooks.tsx/hooks";
 import { productsDetailsActions } from "../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
 
@@ -11,6 +11,7 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
   const navigateTo = () => {
     dispatch(productsDetailsActions.resetReviewsOffset());
     dispatch(productsDetailsActions.setUserRateValue(0));
+    dispatch(productsDetailsActions.setAllowGetCategories());
     navigate(`/productDetails/${product.id}`);
   };
   return (

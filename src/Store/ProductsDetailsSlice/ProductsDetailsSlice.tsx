@@ -2,9 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface reviewsOffset {
   reviewsOffset: number;
   userRateValue: number;
+  isAllowToGetCategories: boolean;
 }
 
-const init: reviewsOffset = { reviewsOffset: 1, userRateValue: 0 };
+const init: reviewsOffset = {
+  reviewsOffset: 1,
+  userRateValue: 0,
+  isAllowToGetCategories: true,
+};
 
 const productsDetails = createSlice({
   name: "productsDetails",
@@ -20,6 +25,12 @@ const productsDetails = createSlice({
     },
     setUserRateValue: (state, actions) => {
       state.userRateValue = actions.payload;
+    },
+    BlockGetCategories: (state) => {
+      state.isAllowToGetCategories = false;
+    },
+    setAllowGetCategories: (state) => {
+      state.isAllowToGetCategories = true;
     },
   },
 });
