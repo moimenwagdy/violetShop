@@ -1,10 +1,6 @@
 // import ProductCard from "../Products/ProductCard";
 // import product from "../Products/types/Types";
-import {
-  UseBaseQueryResult,
-  UseQueryResult,
-  useQuery,
-} from "@tanstack/react-query";
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { getCategory } from "./functions/getCategoryProduct";
 import { useEffect } from "react";
 import {
