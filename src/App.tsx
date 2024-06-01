@@ -4,6 +4,7 @@ import { queryClient } from "./utilities/QueryClient/tanStackQuery";
 import { route } from "./route/routes";
 
 function App() {
+
   return (
     <>
       <QueryClientProvider client={queryClient}>

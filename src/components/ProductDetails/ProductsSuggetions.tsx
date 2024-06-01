@@ -8,12 +8,14 @@ import {
   useAppSelector,
 } from "../../Store/reduxHooks.tsx/hooks";
 import { productsDetailsActions } from "../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
-import { queryClient } from "../../utilities/QueryClient/tanStackQuery";
 import Product from "../Products/Product";
 import product from "../Products/types/Types";
 import ProductCard from "../Products/ProductCard";
+import { useParams } from "react-router";
 
 const ProductsSuggetions: React.FC<{ category: string }> = ({ category }) => {
+  const params = useParams();
+  const currentProductId = params.id;
   const allowToGetCategories = useAppSelector(
     (state) => state.productsDetails.isAllowToGetCategories
   );
@@ -25,20 +27,22 @@ const ProductsSuggetions: React.FC<{ category: string }> = ({ category }) => {
   });
 
   useEffect(() => {
-    isSuccess && queryClient.invalidateQueries({ queryKey: [Product] });
     isSuccess && dispatch(productsDetailsActions.BlockGetCategories());
-    isSuccess && console.log(data);
   }, []);
   return (
-    <ul className="flex w-72 sm:w-96 md:w-[460px] overflow-x-scroll mx-auto ">
-      {data?.map((product) => {
-        return (
-          <div className="min-w-60">
-            <ProductCard product={product} />
-          </div>
-        );
-      })}
-    </ul>
+    <section className=" mb-20 flex w-72 sm:w-96 md:w-[460px] overflow-x-scroll mx-auto scrollbar scrollbar-track-darkViolet scrollbar-thumb-lightestViolet scrollbar-">
+      {data
+        ?.filter((product) => {
+          return product.id !== Number(currentProductId);
+        })
+        .map((product) => {
+          return (
+            <div key={product.id} className="min-w-60">
+              <ProductCard product={product} />
+            </div>
+          );
+        })}
+    </section>
   );
 };
 

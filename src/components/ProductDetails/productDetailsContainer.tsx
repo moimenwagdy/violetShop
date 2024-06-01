@@ -37,8 +37,8 @@ const productDetailsContainer: React.FC<{ product: product }> = ({
               reviews={product.reviews}
             />
           </aside>
-          <section className="flex flex-col justify-center gap-y-12 items-center mt-32">
-            <p className="text-lightViolet font-handWrite">
+          <section className="flex flex-col justify-center gap-y-4 items-center mt-32">
+            <p className="text-lightViolet font-handWrite dark:text-black">
               Products You May Like
             </p>
             <ProductsSuggetions category={product.category} />

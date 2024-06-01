@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import RatingStarsSVG from "./RatingStarsSVG";
 import product from "./types/Types";
-import {  useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { useAppDispatch } from "../../Store/reduxHooks.tsx/hooks";
 import { productsDetailsActions } from "../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
 
@@ -21,7 +21,7 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate="visible"
       className="flex flex-col justify-between h-full p-2 bg-white rin ring-lightestViolet dark:ring-darkViolet/50 rounded-lg shadow-md dark:bg-middarkViolet">
-      <header className="w-full">
+      <header className="w-full min-h-12">
         <h2 className="text-simidarkViolet dark:text-white text-md font-handWrite font-bold text-center ">
           {product.title}
         </h2>
