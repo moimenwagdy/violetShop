@@ -12,7 +12,6 @@ const productDetailsContainer: React.FC<{ product: product }> = ({
 }) => {
   const lg = "flex sm:flex-row sm:gap-x-5 md:gap-x-10 sm:w-[90%]  ";
   const xs = "flex flex-col";
-
   return (
     <main className="mt-32">
       <Container>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { productsDetailsActions } from "../../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
 import {
   useAppDispatch,
@@ -27,7 +28,7 @@ const Reviews: React.FC<{ reviews: reviews[] }> = ({ reviews }) => {
           Reviews
         </h5>
       </span>
-      <ul className="flex flex-col gap-y-3 ">
+      <motion.ul className="flex flex-col gap-y-3">
         {reviews
           .filter((_, i) => {
             return i < reviewsOffset;
@@ -36,14 +37,14 @@ const Reviews: React.FC<{ reviews: reviews[] }> = ({ reviews }) => {
             const isLastItem = i === arr.length - 1;
             return <ReviewItem key={i} index={isLastItem} review={review} />;
           })}
-        <span className="flex justify-center">
+        <span className="flex justify-center h-10">
           <Button
             title={`${allReviewsShown ? "Hide Reviews" : "More Reviews"} `}
             variants="redButtonFree"
             onClick={moreReviews}
           />
         </span>
-      </ul>
+      </motion.ul>
     </article>
   );
 };

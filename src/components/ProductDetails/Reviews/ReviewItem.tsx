@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import RatingStarsSVG from "../../Products/RatingStarsSVG";
 import { reviews } from "../../Products/types/Types";
 
@@ -12,7 +13,14 @@ const ReviewItem: React.FC<{ review: reviews; index: boolean }> = ({
 
   return (
     <>
-      <li className="" key={review.reviewerName}>
+      <motion.li
+        variants={{
+          hidden: { x: -40, opacity: 0 },
+          visible: { x: 0, opacity: 1 },
+        }}
+        initial="hidden"
+        animate="visible"
+        key={review.reviewerName}>
         <span className="flex flex-col">
           <span className="flex flex-row gap-x-4 items-center">
             <p>{review.reviewerName}</p>
@@ -22,7 +30,7 @@ const ReviewItem: React.FC<{ review: reviews; index: boolean }> = ({
         </span>
         <p className="text-darkestViolet font">{review.comment}</p>
         <RatingStarsSVG rating={review.rating} />
-      </li>
+      </motion.li>
     </>
   );
 };

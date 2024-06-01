@@ -25,7 +25,7 @@ const ProductsSuggetions: React.FC<{ category: string }> = ({ category }) => {
     queryFn: () => getCategory(category),
     enabled: allowToGetCategories === true,
   });
-
+  console.log(category);
   useEffect(() => {
     isSuccess && dispatch(productsDetailsActions.BlockGetCategories());
   }, []);
@@ -38,12 +38,12 @@ const ProductsSuggetions: React.FC<{ category: string }> = ({ category }) => {
         .map((product) => {
           return (
             <div key={product.id} className="min-w-60">
-              <ProductCard product={product} />
+              <ProductCard key={product.category} product={product} />
             </div>
           );
         })}
     </section>
-  );
+  ); 
 };
 
 export default ProductsSuggetions;

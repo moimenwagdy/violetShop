@@ -8,6 +8,7 @@ import { productsAction } from "../../../Store/productsSlice/slice";
 import { NavFormInput } from "../../Navbar/Menu/NavForm/NavFormInput";
 import Button from "../../Button";
 import RateItemStars from "./RateItemStars";
+import { motion } from "framer-motion";
 
 const ReviewForm = () => {
   const [comment, setComment] = useState<string>("");
@@ -50,6 +51,7 @@ const ReviewForm = () => {
   };
   return (
     <form
+    
       className="w-full sm:w-[70%] mx-auto flex flex-col gap-y-2 justify-center items-center"
       onSubmit={addReview}>
       <span className="-mb-4">

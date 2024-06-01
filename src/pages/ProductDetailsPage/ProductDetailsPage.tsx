@@ -8,16 +8,17 @@ import { productsAction } from "../../Store/productsSlice/slice";
 import { useEffect } from "react";
 const ProductDetailsPage = () => {
   const params = useParams();
-  const id = params.id;
   const dispatch = useAppDispatch();
+  const id = params.id;
+
+  dispatch(productsAction.getSelectedProduct(id));
   const selectedProduct = useAppSelector(
     (state) => state.productsSlice.selectedProduct
   );
 
   useEffect(() => {
-    dispatch(productsAction.getSelectedProduct(id));
     scrollTo(0, 0);
-  }, [id, dispatch]);
+  }, [id]);
 
   return (
     <ProductDetailsContainer
