@@ -8,7 +8,6 @@ import { productsAction } from "../../../Store/productsSlice/slice";
 import { NavFormInput } from "../../Navbar/Menu/NavForm/NavFormInput";
 import Button from "../../Button";
 import RateItemStars from "./RateItemStars";
-import { motion } from "framer-motion";
 
 const ReviewForm = () => {
   const [comment, setComment] = useState<string>("");
