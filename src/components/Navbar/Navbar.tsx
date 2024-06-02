@@ -9,16 +9,13 @@ import MenuIcon from "./MenuIcon/MenuIcon";
 // import { NavLink } from "react-router-dom";
 import authorize from "../../utilities/authorize";
 import { useEffect } from "react";
-
 const Navbar = () => {
   // const { darkMoodToggler } = useDarkMoodToggler();
   const isOpen = useAppSelector((state) => state.siteMapSlice.isOpen);
-
   useEffect(() => {
     //refresher function for render.com avoiding auth server sleeping
     authorize("login", "moimenwy@gmail.com", "01144026773");
   }, []);
-
   return (
     <nav className="z-50 sm:mb-2 sticky sm:fixed top-0  w-full h-20  dark:bg-gradient-to-r dark:from-darkViolet dark:via-simidarkViolet dark:to-darkViolet bg-gradient-to-r from-violet-200 to-lightestViolet">
       <Container>

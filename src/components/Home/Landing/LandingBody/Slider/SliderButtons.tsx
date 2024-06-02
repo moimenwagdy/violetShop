@@ -6,16 +6,16 @@ import { useEffect, useState } from "react";
 const SliderButtons: React.FC<{
   icon: IconDefinition;
   x: number;
-}> = ({ icon, x }) => {
+  id: string;
+}> = ({ icon, x, id }) => {
   const [a, setA] = useState<Element>();
   const xScroll = (i: number) => {
     i === 1 && a!.scrollBy({ left: -150, behavior: "smooth" });
     i === -1 && a!.scrollBy({ left: 150, behavior: "smooth" });
   };
   useEffect(() => {
-    const scrollBox = document.querySelector("#RecommendedScrollBox");
+    const scrollBox = document.querySelector(`#${id}`);
     scrollBox && setA(scrollBox);
-    console.log(x);
   }, [x]);
   return (
     <motion.span

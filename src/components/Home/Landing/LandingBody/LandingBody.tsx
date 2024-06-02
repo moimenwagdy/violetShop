@@ -1,9 +1,30 @@
-import RecommededItemsContainer from "./RecommededItemsContainer";
+import { useAppSelector } from "../../../../Store/reduxHooks.tsx/hooks";
+import HomeCard from "./HomeShortCutCards/HomeCardItems";
+import SliderContainer from "./Slider/SliderContainer";
 
 const LandingBody = () => {
+  const hightRecommended = useAppSelector(
+    (state) => state.productsSlice.hightRecommended
+  );
+  const mostDiscount = useAppSelector(
+    (state) => state.productsSlice.mostDiscount
+  );
+
   return (
-    <div className="mt-3 w-full">
-      <RecommededItemsContainer />
+    <div className=" w-full flex flex-col gap-y-20 mt-12">
+      <SliderContainer
+        header="Most Rated Items"
+        key={hightRecommended[0]?.rating}
+        items={hightRecommended}
+        id="RecommendedScrollBox"
+      />
+      <SliderContainer
+        header="Most Disscounts"
+        key={mostDiscount[0]?.rating}
+        items={mostDiscount}
+        id="SaleScrollBox"
+      />
+      <HomeCard />
     </div>
   );
 };

@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
 import { Container } from "../../../Container/Container";
-import { useAppSelector } from "../../../../Store/reduxHooks.tsx/hooks";
 const LandingHeader = () => {
   const animatedHeader = "Here elegance meets convenience";
   const array = animatedHeader.split("");
 
-  const products = useAppSelector((state) => state.productsSlice.products);
-  console.log(products);
   return (
     <motion.header
       variants={{
@@ -15,7 +12,7 @@ const LandingHeader = () => {
       }}
       initial="hidden"
       animate="visible"
-      className="bg-similightViolet/50 h-[30vh] md:h-[45vh] mt-6 sm:mt-28 ">
+      className="bg-similightViolet/50 rounded-xl h-[30vh] md:h-[45vh] mt-6 sm:mt-28 ">
       <Container>
         <div className="flex h-full flex-col justify-center items-center mx-auto gap-y-1">
           <h1 className="  text-2xl md:text-6xl font-handWrite font-extrabold text-subColor_4">
