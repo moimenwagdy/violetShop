@@ -5,13 +5,13 @@ import { AnimatePresence } from "framer-motion";
 import MenuItems from "./Menu/MenuItems";
 import Logo from "./Logo/Logo";
 import MenuIcon from "./MenuIcon/MenuIcon";
-import { useDarkMoodToggler } from "../../utilities/useDarkMoodToggler";
-import { NavLink } from "react-router-dom";
+// import { useDarkMoodToggler } from "../../utilities/useDarkMoodToggler";
+// import { NavLink } from "react-router-dom";
 import authorize from "../../utilities/authorize";
 import { useEffect } from "react";
 
 const Navbar = () => {
-  const { darkMoodToggler } = useDarkMoodToggler();
+  // const { darkMoodToggler } = useDarkMoodToggler();
   const isOpen = useAppSelector((state) => state.siteMapSlice.isOpen);
 
   useEffect(() => {
@@ -24,9 +24,9 @@ const Navbar = () => {
       <Container>
         <aside className="h-full flex justify-between items-center">
           <Logo />
-          <button onClick={darkMoodToggler}>Toogle</button>
+          {/* <button onClick={darkMoodToggler}>Toogle</button>
           <NavLink to="/products">prod</NavLink>
-          <NavLink to="/">home</NavLink>
+          <NavLink to="/">home</NavLink> */}
           <MenuIcon />
         </aside>
         <AnimatePresence>{isOpen && <MenuItems />}</AnimatePresence>
