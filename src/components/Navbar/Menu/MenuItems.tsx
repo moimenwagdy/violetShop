@@ -1,4 +1,7 @@
-import { useAppDispatch, useAppSelector } from "../../../Store/reduxHooks.tsx/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../Store/reduxHooks.tsx/hooks";
 import siteMapSlice from "../../../Store/siteMapSlice/siteMapSlice";
 import { MenuItem } from "./MenuItem";
 import HeaderMenuItem from "./HeaderMenuItem";
@@ -21,7 +24,8 @@ const MenuItems = () => {
     <MenuContainer>
       <HeaderMenuItem onClick={closeSiteMap} />
       <MenuItem title="Account" />
-      <MenuItem title="Products" />
+      <MenuItem title="" target="home" />
+      <MenuItem title="Products" target="products" />
       <MenuItem title="Categories" />
       <MenuItem title="Cart" />
       <MenuItem title="Contact Us" />
@@ -31,7 +35,11 @@ const MenuItems = () => {
         <NavForm />
       </motion.li>
       <li>
-        <Button variants="redButtonClose" title="Close" onClick={closeSiteMap} />
+        <Button
+          variants="redButtonClose"
+          title="Close"
+          onClick={closeSiteMap}
+        />
       </li>
       {signedUp && <p className="text-center">Signed up successfuly</p>}
     </MenuContainer>

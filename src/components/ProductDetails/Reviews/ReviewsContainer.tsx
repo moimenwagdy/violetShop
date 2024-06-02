@@ -22,8 +22,8 @@ const ReviewsContainer: React.FC<{
             }}
             initial="hidden"
             animate="visible"
-            className="w-[70%] mx-auto h-full">
-            Thank you for Reviewing with {reviews[3]?.rating || null} stars
+            className="w-[70%] mx-auto h-full text-sm">
+            You Reviewed This Item
           </motion.p>
         )}
       </AnimatePresence>

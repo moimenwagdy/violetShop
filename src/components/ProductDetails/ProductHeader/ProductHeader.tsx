@@ -6,9 +6,6 @@ const ProductHeader: React.FC<{ product: product }> = ({ product }) => {
     product.price &&
     (product.price * (1 - product.discountPercentage / 100)).toFixed(2);
 
-  console.log(product.price);
-  console.log(product.discountPercentage);
-  console.log(afterDisscount);
   return (
     <div className="flex flex-col h-fit">
       <h1 className="w-full text-center sm:text-start text-2xl md:text-4xl text-lightViolet font-handWrite font-bold">

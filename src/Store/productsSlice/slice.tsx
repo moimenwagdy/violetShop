@@ -50,6 +50,7 @@ const productsSlice = createSlice({
     isFetched: false,
     offset: 12,
     updatedReviews: updatedReviews,
+    hightRecommended: init,
   },
   reducers: {
     saveProducts: (state, action: { payload: { products: product[] } }) => {
@@ -59,11 +60,12 @@ const productsSlice = createSlice({
         .map((i) => newArr[i]);
       state.products = shuffledArray;
       state.filteredProducts = [...shuffledArray];
-      // const rr = shuffledArray.filter((e) => {
-      //   return e.id === 2;
-      // });
       state.isFetched = true;
       state.allowFetch = false;
+      const hightestStars = shuffledArray.filter((item) => {
+        return item.rating > 4.9;
+      });
+      state.hightRecommended = [...hightestStars];
     },
     dontAllowFetch: (state) => {
       state.allowFetch = false;

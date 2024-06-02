@@ -2,14 +2,16 @@ import { motion } from "framer-motion";
 import RatingStarsSVG from "../../Products/RatingStarsSVG";
 import { reviews } from "../../Products/types/Types";
 
-const ReviewItem: React.FC<{ review: reviews; index: boolean }> = ({
-  review,
-}) => {
+const ReviewItem: React.FC<{
+  review: reviews;
+}> = ({ review }) => {
   let modefiedDate = new Date(review.date).toLocaleDateString("en-us", {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
+
+  const noRate = review.rating === 0;
 
   return (
     <>
@@ -29,7 +31,7 @@ const ReviewItem: React.FC<{ review: reviews; index: boolean }> = ({
           <p className="text-xs">{review.reviewerEmail}</p>
         </span>
         <p className="text-darkestViolet font">{review.comment}</p>
-        <RatingStarsSVG rating={review.rating} />
+        {!noRate && <RatingStarsSVG rating={review.rating} />}
       </motion.li>
     </>
   );

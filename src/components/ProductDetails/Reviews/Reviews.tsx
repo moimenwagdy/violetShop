@@ -33,9 +33,8 @@ const Reviews: React.FC<{ reviews: reviews[] }> = ({ reviews }) => {
           .filter((_, i) => {
             return i < reviewsOffset;
           })
-          .map((review, i, arr) => {
-            const isLastItem = i === arr.length - 1;
-            return <ReviewItem key={i} index={isLastItem} review={review} />;
+          .map((review, i) => {
+            return <ReviewItem key={i} review={review} />;
           })}
         <span className="flex justify-center h-10">
           <Button

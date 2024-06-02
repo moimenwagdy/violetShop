@@ -3,14 +3,14 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../pages/MainLayout";
 import ProductsPage from "../pages/ProductsPage/ProductsPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage/ProductDetailsPage";
+import HomePage from "../pages/Home/HomePage";
 
 export const route = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-  
     children: [
-      { path: "home", element: <p>hiiiiiii form home</p> },
+      { index: true, element: <HomePage /> },
       { path: "products", element: <ProductsPage /> },
       { path: "productDetails/:id?", element: <ProductDetailsPage /> },
     ],

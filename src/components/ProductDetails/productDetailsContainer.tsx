@@ -5,7 +5,7 @@ import ProductHeader from "./ProductHeader/ProductHeader";
 import Images from "./ImagesComponent/Images";
 import ProductInfo from "./ProductInfo/ProductInfo";
 import ReviewsContainer from "./Reviews/ReviewsContainer";
-import ProductsSuggetions from "./ProductsSuggetions";
+import ProductsSuggetions from "./ProductsSuggetions/ProductsSuggetions";
 
 const productDetailsContainer: React.FC<{ product: product }> = ({
   product,

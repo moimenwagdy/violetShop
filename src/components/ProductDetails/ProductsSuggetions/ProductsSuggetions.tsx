@@ -1,16 +1,16 @@
 // import ProductCard from "../Products/ProductCard";
 // import product from "../Products/types/Types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { getCategory } from "./functions/getCategoryProduct";
+import { getCategory } from "../functions/getCategoryProduct";
 import { useEffect } from "react";
 import {
   useAppDispatch,
   useAppSelector,
-} from "../../Store/reduxHooks.tsx/hooks";
-import { productsDetailsActions } from "../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
-import Product from "../Products/Product";
-import product from "../Products/types/Types";
-import ProductCard from "../Products/ProductCard";
+} from "../../../Store/reduxHooks.tsx/hooks";
+import { productsDetailsActions } from "../../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
+import Product from "../../Products/Product";
+import product from "../../Products/types/Types";
+import ProductCard from "../../Products/ProductCard";
 import { useParams } from "react-router";
 
 const ProductsSuggetions: React.FC<{ category: string }> = ({ category }) => {
@@ -25,12 +25,11 @@ const ProductsSuggetions: React.FC<{ category: string }> = ({ category }) => {
     queryFn: () => getCategory(category),
     enabled: allowToGetCategories === true,
   });
-  console.log(category);
   useEffect(() => {
     isSuccess && dispatch(productsDetailsActions.BlockGetCategories());
   }, []);
   return (
-    <section className=" mb-20 flex w-72 sm:w-96 md:w-[460px] overflow-x-scroll mx-auto scrollbar scrollbar-track-darkViolet scrollbar-thumb-lightestViolet scrollbar-">
+    <section className=" mb-20 flex w-72 sm:w-96 md:w-[460px] overflow-x-scroll mx-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-lightestViolet scrollbar-">
       {data
         ?.filter((product) => {
           return product.id !== Number(currentProductId);
@@ -43,7 +42,7 @@ const ProductsSuggetions: React.FC<{ category: string }> = ({ category }) => {
           );
         })}
     </section>
-  ); 
+  );
 };
 
 export default ProductsSuggetions;
