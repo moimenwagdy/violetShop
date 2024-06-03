@@ -38,6 +38,7 @@ const useNavForm = () => {
     error,
     isError,
     reset,
+    isPending,
   }: UseMutationResult<
     any,
     AxiosError<ErrorResponse>,
@@ -64,6 +65,12 @@ const useNavForm = () => {
       email: formData.email,
       password: formData.password,
       name: formData.name,
+    });
+    setFormData({
+      email: "",
+      name: "",
+      password: "",
+      passwordConfirm: "",
     });
   };
 
@@ -95,7 +102,7 @@ const useNavForm = () => {
       error.response?.data.errors.password!;
   }
 
-  const resetForm = () => {
+  const formTarget = () => {
     formRef.current?.reset();
     dispatch(
       authorizationAction.setResponseData({
@@ -115,19 +122,21 @@ const useNavForm = () => {
       ? dispatch(authorizationAction.setToLogin())
       : dispatch(authorizationAction.setToSignup());
   };
+
   return {
     passwordConfirming: formData.passwordConfirm.length !== 0,
     passwordConflict,
     errorTitle,
     handleChange,
     handleSubmit,
-    resetForm,
     formRef,
     isSignUp: target === "signup",
     isError,
     isSuccess,
     data,
     target,
+    isPending,
+    formTarget,
   };
 };
 

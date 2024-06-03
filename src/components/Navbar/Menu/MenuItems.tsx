@@ -24,7 +24,7 @@ const MenuItems = () => {
     <MenuContainer>
       <HeaderMenuItem onClick={closeSiteMap} />
       <MenuItem title="Account" />
-      <MenuItem title="" target="home" />
+      <MenuItem title="home" target="" />
       <MenuItem title="Products" target="products" />
       <MenuItem title="Categories" />
       <MenuItem title="Cart" />

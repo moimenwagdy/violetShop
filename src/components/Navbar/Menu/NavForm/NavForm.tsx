@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { NavFormInput } from "./NavFormInput";
 import useNavForm from "./FormCustomHook/useNavForm";
-import { useAppDispatch, useAppSelector } from "../../../../Store/reduxHooks.tsx/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../Store/reduxHooks.tsx/hooks";
 import { authorizationAction } from "../../../../Store/authorizationSlice/authorization";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "../../../Button";
@@ -13,12 +16,13 @@ const NavForm = () => {
     errorTitle,
     handleChange,
     handleSubmit,
-    resetForm,
     formRef,
     isSignUp,
     isError,
     isSuccess,
     data,
+    isPending,
+    formTarget,
   } = useNavForm();
   const dispatch = useAppDispatch();
   const loggedIn = useAppSelector((state) => state.authorization.loggedIn);
@@ -36,7 +40,10 @@ const NavForm = () => {
             onSubmit={handleSubmit}
             ref={formRef}
             className={`${isSignUp ? "space-y-1" : "space-y-2 mt-3"} `}
-            variants={{ initial: { x: -100, opacity: 0 }, move: { x: 0, opacity: 1 } }}
+            variants={{
+              initial: { x: -100, opacity: 0 },
+              move: { x: 0, opacity: 1 },
+            }}
             initial="initial"
             animate="move"
             exit="initial">
@@ -84,18 +91,28 @@ const NavForm = () => {
                 passwordConfirming={passwordConfirming}
               />
             )}
-            {isError && <p className="text-xs text-subColor_3 font-basic">{errorTitle}</p>}
-            {isSuccess && isSignUp && (
-              <p className="text-xs text-subColor_3 font-basic">Account Created Susseccfully</p>
+            {isError && (
+              <p className="text-xs text-subColor_3 font-basic">{errorTitle}</p>
             )}
-            <Button title={isSignUp ? "signUp" : "Login"} variants="basic" />
+            {isSuccess && isSignUp && (
+              <p className="text-xs text-subColor_3 font-basic">
+                Account Created Susseccfully
+              </p>
+            )}
+            <Button
+              title={!isPending ? (isSignUp ? "signUp" : "Login") : "submittig"}
+              variants="basic"
+            />
           </motion.form>
           <motion.button
-            variants={{ initial: { x: 100, opacity: 0 }, animate: { x: 0, opacity: 1 } }}
+            variants={{
+              initial: { x: 100, opacity: 0 },
+              animate: { x: 0, opacity: 1 },
+            }}
             animate="animate"
             initial="initial"
             exit="initial"
-            onClick={resetForm}
+            onClick={formTarget}
             className="text-sm w-full mx-1">
             {isSignUp ? "Have An Account" : "Create New Account"}
           </motion.button>
