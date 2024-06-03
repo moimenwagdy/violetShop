@@ -29,14 +29,14 @@ const ProductsSuggetions: React.FC<{ category: string }> = ({ category }) => {
     isSuccess && dispatch(productsDetailsActions.BlockGetCategories());
   }, []);
   return (
-    <section className=" mb-20 flex w-72 sm:w-96 md:w-[460px] overflow-x-scroll mx-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-lightestViolet scrollbar-">
+    <section className=" mb-20 flex w-72 gap-x-1 sm:w-96 md:w-[460px] overflow-x-scroll mx-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-lightestViolet scrollbar-">
       {data
         ?.filter((product) => {
           return product.id !== Number(currentProductId);
         })
         .map((product) => {
           return (
-            <div key={product.id} className="min-w-60">
+            <div key={product.id} className="min-w-64">
               <ProductCard key={product.category} product={product} />
             </div>
           );

@@ -12,7 +12,7 @@ const LandingHeader = () => {
       }}
       initial="hidden"
       animate="visible"
-      className="bg-similightViolet/50 rounded-xl h-[30vh] md:h-[45vh] mt-6 sm:mt-28 ">
+      className="bg-gradient-to-t dark:bg-gradient-to-b from-similightViolet/50 dark:from-middarkViolet/50 to-transparent rounded-xl h-[30vh] md:h-[45vh] mt-6 sm:mt-28 ">
       <Container>
         <div className="flex h-full flex-col justify-center items-center mx-auto gap-y-1">
           <h1 className="  text-2xl md:text-6xl font-handWrite font-extrabold text-subColor_4">

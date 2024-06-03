@@ -20,7 +20,7 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
       variants={{ visible: { opacity: 1, scale: 1 } }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate="visible"
-      className="flex flex-col justify-between h-full p-2 bg-white rin ring-lightestViolet dark:ring-darkViolet/50 rounded-lg shadow-md dark:bg-middarkViolet">
+      className="group flex flex-col justify-between h-full p-2 bg-white shadow-md dark:bg-gradient-to-t dark:from-middarkViolet/20 dark:to-midlightViolet">
       <header className="w-full min-h-12">
         <h2 className="text-simidarkViolet dark:text-white text-md font-handWrite font-bold text-center ">
           {product.title}
@@ -36,13 +36,13 @@ const Product: React.FC<{ product: product }> = ({ product }) => {
           </div>
           <img
             src={product.thumbnail}
-            className="bg-productLighBG dark:bg-lightViolet/50 w-36 h-36 object-cover rounded-lg drop-shadow-xl shadow-xl dark:shadow-black/20  "
+            className="bg-productLighBG dark:bg-productLightkBG w-36 h-36 object-cover rounded-lg drop-shadow-xl shadow-xl dark:shadow-black/20  "
             alt={product.title}
           />
         </div>
       </div>
       <footer className="bg-lightViolet/80 px-2 py-1 rounded-lg mt-2">
-        <p className="text-sm text-white/70 dark:text-gray-300 line-clamp-2">
+        <p className="text-sm text-white/50 group-hover:text-white line-clamp-2">
           {product.description}
         </p>
         <p className="text-right text-md font-semibold text-white">

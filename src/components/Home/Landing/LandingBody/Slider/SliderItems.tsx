@@ -8,10 +8,10 @@ const SliderItems: React.FC<{ items: product[]; id: string }> = ({
   return (
     <section
       id={id}
-      className="w-[75%] flex overflow-x-scroll snap-x mt-4 rounded-xl scrollbar-none ">
+      className="w-[75%] flex gap-x-1 overflow-x-scroll snap-x mt-4 rounded-xl scrollbar-none ">
       {items.map((item) => {
         return (
-          <div key={item.id} className="min-w-60 snap-start">
+          <div key={item.id} className="min-w-64 snap-start">
             <ProductCard product={item} />
           </div>
         );

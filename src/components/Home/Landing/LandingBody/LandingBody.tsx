@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../../../Store/reduxHooks.tsx/hooks";
-import HomeCard from "./HomeShortCutCards/HomeCardItems";
+import HomeCategoiesCards from "./HomeCategoriesShortCutCards/HomeCategoiesCards";
 import SliderContainer from "./Slider/SliderContainer";
 
 const LandingBody = () => {
@@ -18,13 +18,13 @@ const LandingBody = () => {
         items={hightRecommended}
         id="RecommendedScrollBox"
       />
+      <HomeCategoiesCards />
       <SliderContainer
         header="Most Disscounts"
         key={mostDiscount[0]?.rating}
         items={mostDiscount}
         id="SaleScrollBox"
       />
-      <HomeCard />
     </div>
   );
 };

@@ -13,7 +13,7 @@ const SliderContainer: React.FC<{
 }> = ({ id, items, header }) => {
   return (
     <div className="w-full flex flex-col gap-y-4 drop-shadow-lg">
-      <h2 className="text-center text-darkViolet w-1/4 bg-gradient-to-r from-slate-300 to-white mx-auto">
+      <h2 className="text-center text-darkViolet w-full md:w-1/4 bg-gradient-to-r font-handWrite from-slate-300 to-white mx-auto">
         {header}
       </h2>
       <section className="w-full flex justify-around items-center">
