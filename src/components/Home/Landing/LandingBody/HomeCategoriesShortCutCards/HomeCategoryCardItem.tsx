@@ -20,13 +20,13 @@ const HomeCategoryCardItem: React.FC<{
   return (
     <motion.section
       onClick={navigateToCategoryItems}
-      className="grayscale-[50%] hover:grayscale-0 hover:scale-[1.02] cursor-pointer group h-fit max-w-fit bg-similightViolet/50 flex justify-around p-1 gap-x-2 rounded-xl">
+      className="grayscale-[50%] hover:grayscale-0 hover:scale-[1.02] cursor-pointer group h-fit max-w-fit bg-similightViolet/50 flex justify-around p-1 gap-x-2 ">
       <div className="group flex justify-center items-center relative">
         <h1 className="absolute  text-center rounded text-3xl sm:text-xl font-basicf text-white font-extrabold">
           {title}
         </h1>
         <img
-          className="max-w-50 rounded-xl"
+          className="max-w-50 "
           src={`../../../../../images/${src}`}
         />
       </div>
