@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
 import { useAppDispatch } from "../../../../../Store/reduxHooks.tsx/hooks";
-import { productsAction } from "../../../../../Store/productsSlice/slice";
+import { productsAction } from "../../../../../Store/StoreSlices/productsSlice/slice";
 
 const HomeCategoryCardItem: React.FC<{
   title: string;

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../../Store/reduxHooks.tsx/hooks";
-import siteMapSlice from "../../../Store/siteMapSlice/siteMapSlice";
+import siteMapSlice from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 
 export const MenuItem: React.FC<{
   children?: ReactNode;
@@ -19,12 +19,12 @@ export const MenuItem: React.FC<{
       onClick={closeSiteMap}
       className={` ${
         className ? className : ""
-      }  px-4 py-1 transition-all cursor-pointer 
+      } w-full  pr-4 py-1 transition-all cursor-pointer 
       duration-300 hover:bg-similightViolet/20 
       rounded-md  text-end`}>
-      <NavLink to={`/${target}`} className="w-full">
+      <NavLink to={`/${target}`} className="min-w-full">
         {children}
-        {title}
+        {title && <p>{title}</p>}
       </NavLink>
     </motion.li>
   );

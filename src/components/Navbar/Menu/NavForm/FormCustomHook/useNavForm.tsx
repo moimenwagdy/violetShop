@@ -5,7 +5,7 @@ import {
   useAppSelector,
 } from "../../../../../Store/reduxHooks.tsx/hooks";
 import authorize from "../../../../../utilities/authorize";
-import { authorizationAction } from "../../../../../Store/authorizationSlice/authorization";
+import { authorizationAction } from "../../../../../Store/StoreSlices/authorizationSlice/authorization";
 import { AxiosError } from "axios";
 
 interface ErrorResponse {

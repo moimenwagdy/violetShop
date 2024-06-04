@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { authorizationAction } from "../../../../Store/authorizationSlice/authorization";
+import { authorizationAction } from "../../../../Store/StoreSlices/authorizationSlice/authorization";
 import {
   useAppDispatch,
   useAppSelector,

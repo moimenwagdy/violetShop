@@ -3,7 +3,7 @@ import RatingStarsSVG from "./RatingStarsSVG";
 import product from "./types/Types";
 import { useNavigate } from "react-router";
 import { useAppDispatch } from "../../Store/reduxHooks.tsx/hooks";
-import { productsDetailsActions } from "../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
+import { productsDetailsActions } from "../../Store/StoreSlices/ProductsDetailsSlice/ProductsDetailsSlice";
 
 const Product: React.FC<{ product: product }> = ({ product }) => {
   const dispatch = useAppDispatch();

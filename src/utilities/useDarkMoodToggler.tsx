@@ -1,4 +1,4 @@
-import darkMoodSlice from "../Store/darkMoodSlice/darkMoodSlice";
+import darkMoodSlice from "../Store/StoreSlices/darkMoodSlice/darkMoodSlice";
 import { useAppDispatch } from "../Store/reduxHooks.tsx/hooks";
 
 export function useDarkMoodToggler() {

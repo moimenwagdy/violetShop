@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import product, { reviews } from "../../components/Products/types/Types";
+import product, { reviews } from "../../../components/Products/types/Types";
 
 const init: product[] = [];
 
@@ -56,6 +56,14 @@ const productsSlice = createSlice({
   reducers: {
     saveProducts: (state, action: { payload: { products: product[] } }) => {
       const newArr = [...action.payload.products];
+      newArr.map((item) => {
+        if (
+          item.minimumOrderQuantity > item.stock ||
+          item.minimumOrderQuantity > 10
+        ) {
+          item.minimumOrderQuantity = 1;
+        }
+      });
       const shuffledArray = Array.from({ length: newArr.length }, (_, i) => i)
         .sort(() => Math.random() - 0.5)
         .map((i) => newArr[i]);

@@ -2,12 +2,12 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
-import siteMapSlice from "../../../Store/siteMapSlice/siteMapSlice";
+import siteMapSlice from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 import { MenuItem } from "./MenuItem";
 import HeaderMenuItem from "./HeaderMenuItem";
 import MenuContainer from "./MenuContainer";
 import NavForm from "./NavForm/NavForm";
-import { authorizationAction } from "../../../Store/authorizationSlice/authorization";
+import { authorizationAction } from "../../../Store/StoreSlices/authorizationSlice/authorization";
 import UserData from "./UserData/UserData";
 import { motion } from "framer-motion";
 import Button from "../../Button";
@@ -27,7 +27,7 @@ const MenuItems = () => {
       <MenuItem title="home" target="" />
       <MenuItem title="Products" target="products" />
       <MenuItem title="Categories" />
-      <MenuItem title="Cart" />
+      <MenuItem title="Cart" target="cart" />
       <MenuItem title="Contact Us" />
       <MenuItem title="Services" />
       <motion.li layout className="h-fit border-t py-1">

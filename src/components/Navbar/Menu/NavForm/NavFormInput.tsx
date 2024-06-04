@@ -40,7 +40,6 @@ export const NavFormInput: React.FC<{
         }}
         className={`${!isSignUp ? "py-2" : "py-1"} 
         ${passDontMatch ? "ring-1 ring-subColor_4" : ""}
-       
          focus:outline-none focus:outline focus:outline-1 rounded-sm focus:outline-white focus:ring-0  w-full bg-lightestViolet/20 ps-4  placeholder:text-sm placeholder:font-basic placeholder:text-white/50`}></input>
     </div>
   );

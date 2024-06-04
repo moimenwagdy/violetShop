@@ -4,6 +4,7 @@ import MainLayout from "../pages/MainLayout";
 import ProductsPage from "../pages/ProductsPage/ProductsPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage/ProductDetailsPage";
 import HomePage from "../pages/Home/HomePage";
+import CartPage from "../pages/CartPage/CartPage";
 
 export const route = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ export const route = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "products", element: <ProductsPage /> },
       { path: "productDetails/:id?", element: <ProductDetailsPage /> },
+      { path: "cart", element: <CartPage /> },
     ],
   },
 ]);

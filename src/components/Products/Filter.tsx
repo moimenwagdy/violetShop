@@ -5,7 +5,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../Store/reduxHooks.tsx/hooks";
-import { productsAction } from "../../Store/productsSlice/slice";
+import { productsAction } from "../../Store/StoreSlices/productsSlice/slice";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 

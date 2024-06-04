@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productsSlice from "./productsSlice/slice";
-import darkMoodSlice from "./darkMoodSlice/darkMoodSlice";
-import siteMapSlice from "./siteMapSlice/siteMapSlice";
-import authorization from "./authorizationSlice/authorization";
-import productsDetails from "./ProductsDetailsSlice/ProductsDetailsSlice";
+import productsSlice from "./StoreSlices/productsSlice/slice";
+import darkMoodSlice from "./StoreSlices/darkMoodSlice/darkMoodSlice";
+import siteMapSlice from "./StoreSlices/siteMapSlice/siteMapSlice";
+import authorization from "./StoreSlices/authorizationSlice/authorization";
+import productsDetails from "./StoreSlices/ProductsDetailsSlice/ProductsDetailsSlice";
+import cartSlice from "./StoreSlices/CartSlice/CartSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     siteMapSlice: siteMapSlice.reducer,
     authorization: authorization.reducer,
     productsDetails: productsDetails.reducer,
+    cartSlice: cartSlice.reducer,
   },
 });
 

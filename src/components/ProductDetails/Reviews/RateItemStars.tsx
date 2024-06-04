@@ -1,4 +1,4 @@
-import { productsDetailsActions } from "../../../Store/ProductsDetailsSlice/ProductsDetailsSlice";
+import { productsDetailsActions } from "../../../Store/StoreSlices/ProductsDetailsSlice/ProductsDetailsSlice";
 import {
   useAppDispatch,
   useAppSelector,

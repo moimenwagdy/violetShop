@@ -10,7 +10,7 @@ const ProductCard: React.FC<{ product: product }> = ({ product }) => {
       animate="visible"
       className="cursor-pointer hover:scale-[.99] 
       transition-transform 
-      duration-75 relative bg-white dark:bg-simidarkViolet
+      duration-75 relative bg-white dark:bg-transparent
      rounded p-2 dark:p-1 w-full"
       key={product.id}>
       <Product product={product} />

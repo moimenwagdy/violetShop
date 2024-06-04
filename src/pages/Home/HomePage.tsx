@@ -7,7 +7,7 @@ import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useEffect } from "react";
 import product, { ProductsError } from "../../components/Products/types/Types";
-import { productsAction } from "../../Store/productsSlice/slice";
+import { productsAction } from "../../Store/StoreSlices/productsSlice/slice";
 import getFullProducts from "../../components/Products/functions/getfullProducts";
 
 const HomePage = () => {

@@ -4,7 +4,7 @@ import {
   useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
 import { reviews } from "../../Products/types/Types";
-import { productsAction } from "../../../Store/productsSlice/slice";
+import { productsAction } from "../../../Store/StoreSlices/productsSlice/slice";
 import { NavFormInput } from "../../Navbar/Menu/NavForm/NavFormInput";
 import Button from "../../Button";
 import RateItemStars from "./RateItemStars";
@@ -50,7 +50,6 @@ const ReviewForm = () => {
   };
   return (
     <form
-    
       className="w-full sm:w-[70%] mx-auto flex flex-col gap-y-2 justify-center items-center"
       onSubmit={addReview}>
       <span className="-mb-4">

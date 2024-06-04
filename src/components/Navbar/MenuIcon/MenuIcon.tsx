@@ -3,7 +3,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
-import siteMapSlice from "../../../Store/siteMapSlice/siteMapSlice";
+import siteMapSlice from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const MenuIcon = () => {
