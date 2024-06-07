@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { cartSliceAction } from "../../../Store/StoreSlices/CartSlice/CartSlice";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../Store/reduxHooks.tsx/hooks";
+import { useAppDispatch } from "../../../Store/reduxHooks.tsx/hooks";
 import Button from "../../Button";
 import { cartPayload } from "../../Cart/types";
 import product from "../../Products/types/Types";
@@ -12,12 +9,10 @@ import QuantityForm from "./QuantityForm";
 const AddToCart: React.FC<{ product: product }> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(0);
   const [showQuantityAlert, setshowQuantityAlert] = useState<boolean>(false);
-
+  const dispatch = useAppDispatch();
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuantity(Number(e.target.value));
   };
-  console.log(quantity);
-  const dispatch = useAppDispatch();
   let updatedPayloadCartItem: cartPayload;
   const payloadCartItem: cartPayload = new cartPayload(product, quantity);
   updatedPayloadCartItem = { ...payloadCartItem };
@@ -30,8 +25,7 @@ const AddToCart: React.FC<{ product: product }> = ({ product }) => {
       setQuantity(0);
     (!minimumIsOk || !maximumIsOk) && setshowQuantityAlert(true);
   }
-  const cart = useAppSelector((state) => state.cartSlice.cartProducts);
-  console.log(cart);
+
   return (
     <>
       <Button variants="AddItem" title="Add To Cart" onClick={addToCart} />

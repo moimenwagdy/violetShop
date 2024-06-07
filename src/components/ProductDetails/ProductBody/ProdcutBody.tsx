@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router";
 import { cartSliceAction } from "../../../Store/StoreSlices/CartSlice/CartSlice";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
+import Button from "../../Button";
 import product from "../../Products/types/Types";
 import AddToCart from "./AddToCart";
 
@@ -12,10 +14,15 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
   const removeFromCart = () => {
     dispatch(cartSliceAction.removeFromCart({ itemID: product.id }));
   };
+  const navigate = useNavigate();
   const idExsit = Cart.findIndex((item) => item.id === product.id);
   const itemExist = idExsit !== -1;
   const outOffStock = product.stock === 0;
-  console.log(Cart);
+  const cartIsEmpty = useAppSelector((state) => state.cartSlice.cartIsEmpty);
+  function visitCart() {
+    navigate("/cart");
+  }
+  console.log(cartIsEmpty);
   return (
     <>
       <div className="flex flex-col gap-y-2 justify-start items-start">
@@ -50,6 +57,16 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
           <p className="self-end text-subColor_4 font-basic font-bold">
             Item out of stock
           </p>
+        )}
+        {!cartIsEmpty ? (
+          <Button
+            variants="basic"
+            title="go to cart"
+            onClick={visitCart}
+            additionalStyles="w-24"
+          />
+        ) : (
+          <></>
         )}
       </div>
     </>

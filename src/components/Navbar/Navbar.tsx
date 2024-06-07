@@ -17,7 +17,7 @@ const Navbar = () => {
     authorize("login", "moimenwy@gmail.com", "01144026773");
   }, []);
   return (
-    <nav className="z-50 sm:mb-2 sticky sm:fixed top-0  w-full h-20  dark:bg-gradient-to-r dark:from-darkViolet dark:via-simidarkViolet dark:to-darkViolet bg-gradient-to-r from-violet-200 to-lightestViolet">
+    <nav className="z-10 sm:mb-2 sticky sm:fixed top-0  w-full h-20  dark:bg-gradient-to-r dark:from-darkViolet dark:via-simidarkViolet dark:to-darkViolet bg-gradient-to-r from-violet-200 to-lightestViolet">
       <Container>
         <aside className="h-full flex justify-between items-center">
           <Logo />
