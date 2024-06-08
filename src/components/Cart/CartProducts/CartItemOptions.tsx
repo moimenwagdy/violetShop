@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router";
-import { cartSliceAction } from "../../Store/StoreSlices/CartSlice/CartSlice";
-import { useAppDispatch } from "../../Store/reduxHooks.tsx/hooks";
-import Button from "../Button";
-import { cartPayload } from "./types";
-import { productsDetailsActions } from "../../Store/StoreSlices/ProductsDetailsSlice/ProductsDetailsSlice";
+import { cartSliceAction } from "../../../Store/StoreSlices/CartSlice/CartSlice";
+import { useAppDispatch } from "../../../Store/reduxHooks.tsx/hooks";
+import Button from "../../Button";
+import { cartPayload } from "../types";
+import { productsDetailsActions } from "../../../Store/StoreSlices/ProductsDetailsSlice/ProductsDetailsSlice";
 
 const CartItemOptions: React.FC<{ product: cartPayload }> = ({ product }) => {
   const dispatch = useAppDispatch();
