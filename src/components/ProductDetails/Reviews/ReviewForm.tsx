@@ -22,6 +22,7 @@ const ReviewForm = () => {
     setComment(e.target.value);
     e.target.value !== "" && setSubmittedWithoutReview(false);
   };
+  const userData = useAppSelector((state) => state.authorization.responseData);
   const userRate = useAppSelector(
     (state) => state.productsDetails.userRateValue
   );
@@ -35,8 +36,8 @@ const ReviewForm = () => {
     const newReview: reviews = {
       comment: comment,
       rating: userRate,
-      reviewerEmail: "UserEmail" || "example@example.com",
-      reviewerName: "userName" || "John Doe",
+      reviewerEmail: userData.email,
+      reviewerName: userData.name,
       date: currentDade,
     };
     comment

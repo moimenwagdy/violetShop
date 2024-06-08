@@ -23,6 +23,7 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
     navigate("/cart");
   }
   console.log(cartIsEmpty);
+  const LoggedIn = useAppSelector((state) => state.authorization.loggedIn);
   return (
     <>
       <div className="flex flex-col gap-y-2 justify-start items-start">
@@ -34,39 +35,47 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
             {product.description}
           </p>
         </div>
-        {!outOffStock ? (
-          <span className="w-full flex justify-center items-center sm:justify-end sm:items-start">
-            {!itemExist ? (
-              <div className="flex flex-col gap-y-2">
-                <AddToCart product={product} />
-              </div>
+        {LoggedIn ? (
+          <>
+            {!outOffStock ? (
+              <span className="w-full flex justify-center items-center sm:justify-end sm:items-start">
+                {!itemExist ? (
+                  <div className="flex flex-col gap-y-2">
+                    <AddToCart product={product} />
+                  </div>
+                ) : (
+                  <div className="flex justify-center items-center gap-x-2">
+                    <p className="text-sm text-midlightViolet">
+                      Item added to cart
+                    </p>
+                    <p
+                      className="text-xs text-subColor_4 cursor-pointer"
+                      onClick={removeFromCart}>
+                      undo
+                    </p>
+                  </div>
+                )}
+              </span>
             ) : (
-              <div className="flex justify-center items-center gap-x-2">
-                <p className="text-sm text-midlightViolet">
-                  Item added to cart
-                </p>
-                <p
-                  className="text-xs text-subColor_4 cursor-pointer"
-                  onClick={removeFromCart}>
-                  undo
-                </p>
-              </div>
+              <p className="self-end text-subColor_4 font-basic font-bold">
+                Item out of stock
+              </p>
             )}
-          </span>
+            {!cartIsEmpty ? (
+              <Button
+                variants="basic"
+                title="go to cart"
+                onClick={visitCart}
+                additionalStyles="w-24"
+              />
+            ) : (
+              <></>
+            )}
+          </>
         ) : (
-          <p className="self-end text-subColor_4 font-basic font-bold">
-            Item out of stock
+          <p className="text-xs self-end text-subColor_4">
+            login to manage Cart
           </p>
-        )}
-        {!cartIsEmpty ? (
-          <Button
-            variants="basic"
-            title="go to cart"
-            onClick={visitCart}
-            additionalStyles="w-24"
-          />
-        ) : (
-          <></>
         )}
       </div>
     </>

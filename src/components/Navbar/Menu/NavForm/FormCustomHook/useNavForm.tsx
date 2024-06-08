@@ -85,7 +85,8 @@ const useNavForm = () => {
       dispatch(authorizationAction.setToLogin());
       reset();
     }
-  }, [isSuccess, data, dispatch, reset, target]);
+    console.log(formData);
+  }, [isSuccess, data, dispatch, reset, target, formData]);
 
   useEffect(() => {
     setPasswordConflict(formData.password !== formData.passwordConfirm);
