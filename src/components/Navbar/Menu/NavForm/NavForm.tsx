@@ -28,10 +28,15 @@ const NavForm = () => {
   const loggedIn = useAppSelector((state) => state.authorization.loggedIn);
   useEffect(() => {
     if (!isSignUp && isSuccess) {
-      dispatch(authorizationAction.setResponseData(data));
+      dispatch(authorizationAction.setResponseData(data!));
       dispatch(authorizationAction.setLoggedIn(true));
+      localStorage.setItem("lklk", JSON.stringify(obj));
     }
   });
+  const obj = {
+    id: "koko",
+    data: ["sfsdf", "fasfasf"],
+  };
   return (
     <AnimatePresence>
       {!loggedIn && (
@@ -94,11 +99,6 @@ const NavForm = () => {
             {isError && (
               <p className="text-xs text-subColor_3 font-basic">{errorTitle}</p>
             )}
-            {isSuccess && isSignUp && (
-              <p className="text-xs text-subColor_3 font-basic">
-                Account Created Susseccfully
-              </p>
-            )}
             <Button
               title={!isPending ? (isSignUp ? "signUp" : "Login") : "submittig"}
               variants="basic"
@@ -117,6 +117,11 @@ const NavForm = () => {
             {isSignUp ? "Have An Account" : "Create New Account"}
           </motion.button>
         </>
+      )}
+      {isSignUp && isSuccess && (
+        <p className="text-xs text-subColor_3 font-basic">
+          Account Created Susseccfully
+        </p>
       )}
     </AnimatePresence>
   );

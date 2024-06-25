@@ -4,7 +4,12 @@ import { cartPayload } from "./types";
 import CartCosting from "./CartDetails/CartCostingItems";
 import CartCostingOptions from "./CartDetails/CartCostingOptions";
 import Button from "../Button";
-import { useAppSelector } from "../../Store/reduxHooks.tsx/hooks";
+import {
+  // useAppDispatch,
+  useAppSelector,
+} from "../../Store/reduxHooks.tsx/hooks";
+// import { useEffect } from "react";
+// import { getAPICartItems } from "../../Store/StoreSlices/CartSlice/CartSlice";
 
 const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
   cartItems,
@@ -13,8 +18,15 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
   cartItems.forEach((item) => {
     totalCost += item.totalPrice;
   });
+  // const dispatch = useAppDispatch();
   const loggedIn = useAppSelector((state) => state.authorization.loggedIn);
+  // const userID = useAppSelector((state) => state.authorization.responseData.id);
   const cartHasItems = cartItems.length !== 0;
+
+  // useEffect(() => {
+  //   loggedIn && dispatch(getAPICartItems(userID));
+  // }, []);
+
   return (
     <Container>
       <main className="flex flex-col justify-between sm:justify-around sm:flex-row-reverse min-w-48">
@@ -46,5 +58,4 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
     </Container>
   );
 };
-
 export default CartContainer;

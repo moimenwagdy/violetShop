@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface payloadType {
+export interface payloadType {
   name: string;
   email: string;
   token: string;
@@ -33,6 +33,7 @@ const authorization = createSlice({
     setResponseData: (state, action: { payload: payloadType }) => {
       state.responseData = action.payload;
       localStorage.setItem("token", action.payload.token);
+      console.log(state.responseData);
     },
     setToLogin: (state) => {
       state.target = "login";

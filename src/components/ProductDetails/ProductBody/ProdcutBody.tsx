@@ -24,6 +24,7 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
   }
   console.log(cartIsEmpty);
   const LoggedIn = useAppSelector((state) => state.authorization.loggedIn);
+
   return (
     <>
       <div className="flex flex-col gap-y-2 justify-start items-start">
@@ -73,7 +74,7 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
             )}
           </>
         ) : (
-          <p className="text-xs self-end text-subColor_4">
+          <p className="text-xs self-center sm:self-end text-subColor_4">
             login to manage Cart
           </p>
         )}

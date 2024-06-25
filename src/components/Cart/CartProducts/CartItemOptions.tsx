@@ -1,6 +1,12 @@
 import { useNavigate } from "react-router";
-import { cartSliceAction } from "../../../Store/StoreSlices/CartSlice/CartSlice";
-import { useAppDispatch } from "../../../Store/reduxHooks.tsx/hooks";
+import {
+  cartSliceAction,
+  // setAPICartItems,
+} from "../../../Store/StoreSlices/CartSlice/CartSlice";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../Store/reduxHooks.tsx/hooks";
 import Button from "../../Button";
 import { cartPayload } from "../types";
 import { productsDetailsActions } from "../../../Store/StoreSlices/ProductsDetailsSlice/ProductsDetailsSlice";
@@ -8,13 +14,20 @@ import { productsDetailsActions } from "../../../Store/StoreSlices/ProductsDetai
 const CartItemOptions: React.FC<{ product: cartPayload }> = ({ product }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  // const userId = useAppSelector((state) => state.authorization.responseData.id);
+  const cartItems = useAppSelector((state) => state.cartSlice.cartProducts);
   const handleRemove = () => {
     dispatch(cartSliceAction.removeFromCart({ itemID: product.id }));
+    console.log(product);
+    console.log(cartItems);
+    // dispatch(setAPICartItems({ id: userId, cart: cartItems }));
   };
   const goToProductDetails = () => {
     navigate(`/productDetails/${product.id}`);
     dispatch(productsDetailsActions.setAllowGetCategories());
   };
+
   return (
     <>
       <Button

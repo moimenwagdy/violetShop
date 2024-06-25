@@ -1,7 +1,7 @@
 // import ProductCard from "../Products/ProductCard";
 // import product from "../Products/types/Types";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { getCategory } from "../functions/getCategoryProduct";
+import { getCategory } from "../functions/getCategoryProducts";
 import { useEffect } from "react";
 import {
   useAppDispatch,

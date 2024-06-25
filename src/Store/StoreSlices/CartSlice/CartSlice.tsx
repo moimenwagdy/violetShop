@@ -1,5 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { cartPayload } from "../../../components/Cart/types";
+import axios from "axios";
+const getUserCartItemsEndPoint = import.meta.env.VITE_SET_CART_ITEMS_ENDPOINT;
 export interface cartProducts {
   cartProducts: cartPayload[];
   cartIsEmpty: boolean;
@@ -55,10 +57,30 @@ const cartSlice = createSlice({
       }
       state.cartProducts = [...subArr];
       state.cartIsEmpty = state.cartProducts.length === 0;
+      console.log(state.cartProducts);
     },
+    clearCart: (state) => {
+      state.cartProducts = [];
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(
+      getAPICartItems.fulfilled,
+      (state, action: PayloadAction<cartPayload[]>) => {
+        state.cartProducts = [...action.payload];
+      }
+    );
   },
 });
 
 export default cartSlice;
 
 export const cartSliceAction = cartSlice.actions;
+
+export const getAPICartItems = createAsyncThunk<cartPayload[], string>(
+  "cartSlice/api",
+  async (id: string) => {
+    const response = await axios.get(`${getUserCartItemsEndPoint}/${id}`);
+    return response.data;
+  }
+);

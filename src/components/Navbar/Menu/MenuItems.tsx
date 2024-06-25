@@ -23,10 +23,8 @@ const MenuItems = () => {
   return (
     <MenuContainer>
       <HeaderMenuItem onClick={closeSiteMap} />
-      <MenuItem title="Account" />
       <MenuItem title="home" target="" />
       <MenuItem title="Products" target="products" />
-      <MenuItem title="Categories" />
       <MenuItem title="Cart" target="cart" />
       <MenuItem title="Contact Us" />
       <MenuItem title="Services" />

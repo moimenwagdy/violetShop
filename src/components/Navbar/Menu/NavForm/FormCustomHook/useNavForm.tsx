@@ -7,6 +7,8 @@ import {
 import authorize from "../../../../../utilities/authorize";
 import { authorizationAction } from "../../../../../Store/StoreSlices/authorizationSlice/authorization";
 import { AxiosError } from "axios";
+import { getAPICartItems } from "../../../../../Store/StoreSlices/CartSlice/CartSlice";
+// import { getAPICartItems } from "../../../../../Store/StoreSlices/CartSlice/CartSlice";
 
 interface ErrorResponse {
   message: string;
@@ -40,7 +42,7 @@ const useNavForm = () => {
     reset,
     isPending,
   }: UseMutationResult<
-    any,
+    { id: string; email: string; name: string; token: string },
     AxiosError<ErrorResponse>,
     { target: string; email: string; password: string; name: string }
   > = useMutation({
@@ -48,7 +50,6 @@ const useNavForm = () => {
     mutationFn: ({ target, email, password, name }) =>
       authorize(target, email, password, name),
   });
-
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       reset();
@@ -72,6 +73,7 @@ const useNavForm = () => {
       password: "",
       passwordConfirm: "",
     });
+    formRef.current?.reset();
   };
 
   useEffect(() => {
@@ -79,6 +81,8 @@ const useNavForm = () => {
       formRef.current?.reset();
       if (!isSignUp) {
         dispatch(authorizationAction.setResponseData(data));
+        dispatch(getAPICartItems(data.id));
+        ///////
       } else {
         dispatch(authorizationAction.setSignedUp(true));
       }
