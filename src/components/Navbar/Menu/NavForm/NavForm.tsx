@@ -26,17 +26,14 @@ const NavForm = () => {
   } = useNavForm();
   const dispatch = useAppDispatch();
   const loggedIn = useAppSelector((state) => state.authorization.loggedIn);
+ 
   useEffect(() => {
     if (!isSignUp && isSuccess) {
       dispatch(authorizationAction.setResponseData(data!));
       dispatch(authorizationAction.setLoggedIn(true));
-      localStorage.setItem("lklk", JSON.stringify(obj));
     }
-  });
-  const obj = {
-    id: "koko",
-    data: ["sfsdf", "fasfasf"],
-  };
+  }, [isSignUp, isSuccess]);
+
   return (
     <AnimatePresence>
       {!loggedIn && (
@@ -64,6 +61,7 @@ const NavForm = () => {
               />
             )}
             <NavFormInput
+              autofocus={true}
               title="Email"
               name="email"
               type="text"
@@ -113,16 +111,12 @@ const NavForm = () => {
             initial="initial"
             exit="initial"
             onClick={formTarget}
-            className="text-sm w-full mx-1">
+            className="text-lg mt-4 w-full mx-1">
             {isSignUp ? "Have An Account" : "Create New Account"}
           </motion.button>
         </>
       )}
-      {isSignUp && isSuccess && (
-        <p className="text-xs text-subColor_3 font-basic">
-          Account Created Susseccfully
-        </p>
-      )}
+     
     </AnimatePresence>
   );
 };

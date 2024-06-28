@@ -1,17 +1,15 @@
 import darkMoodSlice from "../Store/StoreSlices/darkMoodSlice/darkMoodSlice";
-import { useAppDispatch } from "../Store/reduxHooks.tsx/hooks";
+import { useAppDispatch, useAppSelector } from "../Store/reduxHooks.tsx/hooks";
 
 export function useDarkMoodToggler() {
   const dispatch = useAppDispatch();
+  const stateMood = useAppSelector(state=>state.darkMoodSlice.isDark)
   const darkMoodToggler = () => {
-    const ele = document.querySelector("html");
-    const isDark = ele?.classList.contains("dark");
-    if (isDark) {
-      ele?.classList.remove("dark");
+    
+    if (stateMood) {
       dispatch(darkMoodSlice.actions.darkMood(false));
     }
-    if (!isDark) {
-      ele?.classList.add("dark");
+    if (!stateMood) {
       dispatch(darkMoodSlice.actions.darkMood(true));
     }
   };

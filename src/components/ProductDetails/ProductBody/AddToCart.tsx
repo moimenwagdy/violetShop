@@ -24,8 +24,6 @@ const AddToCart: React.FC<{ product: product }> = ({ product }) => {
   let updatedPayloadCartItem: cartPayload;
   const payloadCartItem: cartPayload = new cartPayload(product, quantity);
   updatedPayloadCartItem = { ...payloadCartItem };
-  // const userId = useAppSelector((state) => state.authorization.responseData.id);
-  // const cartItems = useAppSelector((state) => state.cartSlice.cartProducts);
   function addToCart() {
     const minimumIsOk = quantity >= product.minimumOrderQuantity;
     const maximumIsOk = quantity <= product.stock;
@@ -36,13 +34,6 @@ const AddToCart: React.FC<{ product: product }> = ({ product }) => {
       setshowQuantityAlert(true);
     }
   }
-
-  // useEffect(() => {
-  //   dispatch(setAPICartItems({ id: userId, cart: cartItems }));
-  //   return () => {
-  //     dispatch(setAPICartItems({ id: userId, cart: cartItems }));
-  //   };
-  // }, [cartItems.length, product]);
   return (
     <>
       <Button variants="AddItem" title="Add To Cart" onClick={addToCart} />

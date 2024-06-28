@@ -9,8 +9,9 @@ import MenuContainer from "./MenuContainer";
 import NavForm from "./NavForm/NavForm";
 import { authorizationAction } from "../../../Store/StoreSlices/authorizationSlice/authorization";
 import UserData from "./UserData/UserData";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Button from "../../Button";
+import DarkLightMood from "./DarkLightMood";
 
 const MenuItems = () => {
   const signedUp = useAppSelector((state) => state.authorization.signedUp);
@@ -28,6 +29,7 @@ const MenuItems = () => {
       <MenuItem title="Cart" target="cart" />
       <MenuItem title="Contact Us" />
       <MenuItem title="Services" />
+      <DarkLightMood />
       <motion.li layout className="h-fit border-t py-1">
         <UserData />
         <NavForm />
@@ -39,7 +41,20 @@ const MenuItems = () => {
           onClick={closeSiteMap}
         />
       </li>
-      {signedUp && <p className="text-center">Signed up successfuly</p>}
+      <li className="absolute left-[50%] -translate-x-[50%]">
+        <AnimatePresence>
+          {signedUp && (
+            <motion.p
+              variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+              initial="hidden"
+              animate="visible"
+              exit="hidd"
+              className="text-center text-xs">
+              Signed up successfuly
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </li>
     </MenuContainer>
   );
 };

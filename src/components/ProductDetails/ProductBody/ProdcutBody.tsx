@@ -7,6 +7,7 @@ import {
 import Button from "../../Button";
 import product from "../../Products/types/Types";
 import AddToCart from "./AddToCart";
+import { siteMapSliceAction } from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 
 const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
   const dispatch = useAppDispatch();
@@ -22,9 +23,10 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
   function visitCart() {
     navigate("/cart");
   }
-  console.log(cartIsEmpty);
   const LoggedIn = useAppSelector((state) => state.authorization.loggedIn);
-
+  const openAuthForm = () => {
+    dispatch(siteMapSliceAction.openMap());
+  };
   return (
     <>
       <div className="flex flex-col gap-y-2 justify-start items-start">
@@ -74,7 +76,9 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
             )}
           </>
         ) : (
-          <p className="text-xs self-center sm:self-end text-subColor_4">
+          <p
+            onClick={openAuthForm}
+            className="cursor-pointer text-xs self-center sm:self-end text-subColor_4">
             login to manage Cart
           </p>
         )}

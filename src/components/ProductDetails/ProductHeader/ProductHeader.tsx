@@ -12,8 +12,8 @@ const ProductHeader: React.FC<{ product: product }> = ({ product }) => {
         {product.title}
       </h1>
       <span className="mx-auto sm:mx-0 flex flex-col sm:flex-row gap-x-1 ">
-        <p className=" line-through text-subColor_3 ">{product.price}$</p>
-        <span className="text-subColor_4">{afterDisscount!}$</span>
+        <span className="text-subColor_4 text-lg font-bold">{afterDisscount!}$</span>
+        <p className=" line-through text-subColor_3 font-light ">{product.price}$</p>
       </span>
       <span className="w-full flex justify-center items-center sm:justify-start  gap-x-2 mt-4">
         <p className="text-simidarkViolet">Rating</p>

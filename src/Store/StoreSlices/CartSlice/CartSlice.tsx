@@ -57,7 +57,6 @@ const cartSlice = createSlice({
       }
       state.cartProducts = [...subArr];
       state.cartIsEmpty = state.cartProducts.length === 0;
-      console.log(state.cartProducts);
     },
     clearCart: (state) => {
       state.cartProducts = [];

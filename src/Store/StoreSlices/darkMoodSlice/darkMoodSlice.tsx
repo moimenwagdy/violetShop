@@ -3,9 +3,9 @@ export interface darkMoood {
   isDark: boolean | undefined;
 }
 
-const ele = document.querySelector("html");
-const isDark = ele?.classList.contains("dark");
+const localStorageHasDaarkMood = localStorage.getItem("mood");
 
+const isDark = localStorageHasDaarkMood === "dark";
 const init: darkMoood = { isDark: isDark ? true : false };
 
 const darkMoodSlice = createSlice({
@@ -14,7 +14,12 @@ const darkMoodSlice = createSlice({
   reducers: {
     darkMood: (state, actions) => {
       state.isDark = actions.payload;
-      console.log(state.isDark);
+      if (state.isDark) {
+        localStorage.setItem("mood", "dark");
+      }
+      if (!state.isDark) {
+        localStorage.removeItem("mood");
+      }
     },
   },
 });

@@ -79,7 +79,6 @@ const productsSlice = createSlice({
       });
       state.hightRecommended = [...hightestStars];
       state.mostDiscount = [...mostDiscount];
-      console.log(mostDiscount);
     },
     dontAllowFetch: (state) => {
       state.allowFetch = false;

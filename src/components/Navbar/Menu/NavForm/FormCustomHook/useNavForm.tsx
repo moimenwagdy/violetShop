@@ -75,7 +75,6 @@ const useNavForm = () => {
     });
     formRef.current?.reset();
   };
-
   useEffect(() => {
     if (isSuccess) {
       formRef.current?.reset();
@@ -85,11 +84,15 @@ const useNavForm = () => {
         ///////
       } else {
         dispatch(authorizationAction.setSignedUp(true));
+        setTimeout(() => {
+          dispatch(authorizationAction.setSignedUp(false));
+        }, 2000);
+        setTimeout(() => {
+          dispatch(authorizationAction.setToLogin());
+        }, 3000);
       }
-      dispatch(authorizationAction.setToLogin());
       reset();
     }
-    console.log(formData);
   }, [isSuccess, data, dispatch, reset, target, formData]);
 
   useEffect(() => {
@@ -126,6 +129,8 @@ const useNavForm = () => {
     isSignUp
       ? dispatch(authorizationAction.setToLogin())
       : dispatch(authorizationAction.setToSignup());
+
+   
   };
 
   return {

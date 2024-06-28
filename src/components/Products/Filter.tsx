@@ -38,7 +38,6 @@ const Filter = () => {
     formRef.current?.reset();
     dispatch(productsAction.increaseOffsetBy(-filterOffset + 12));
     dispatch(productsAction.setIsFiltring(false));
-
   };
   const closeFilter = () => {
     dispatch(productsAction.setFilterIsOpen(false));
@@ -60,7 +59,7 @@ const Filter = () => {
         id="filter-form"
         className="w-full flex flex-col gap-y-2 sm:flex-row gap-x-2 justify-around">
         <fieldset className="filter-group flex flex-wrap justify-start w-full sm:w3/4">
-          <legend className="font-semibold">Category</legend>
+          <legend className="font-semibold">Categories</legend>
           {isSuccess &&
             data.map((e) => {
               return (

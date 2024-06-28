@@ -33,7 +33,6 @@ const authorization = createSlice({
     setResponseData: (state, action: { payload: payloadType }) => {
       state.responseData = action.payload;
       localStorage.setItem("token", action.payload.token);
-      console.log(state.responseData);
     },
     setToLogin: (state) => {
       state.target = "login";

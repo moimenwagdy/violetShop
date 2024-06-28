@@ -19,12 +19,12 @@ export const MenuItem: React.FC<{
       onClick={closeSiteMap}
       className={` ${
         className ? className : ""
-      } w-full  pr-4 py-1 transition-all cursor-pointer 
+      } w-full min-h-fit pr-4 transition-all cursor-pointer 
       duration-300 hover:bg-similightViolet/20 
       rounded-md  text-end`}>
       <NavLink to={`/${target}`} className="min-w-full">
         {children}
-        {title && <p>{title}</p>}
+        {title && <p className="py-1">{title}</p>}
       </NavLink>
     </motion.li>
   );

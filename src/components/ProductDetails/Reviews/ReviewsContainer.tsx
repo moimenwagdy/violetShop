@@ -3,7 +3,11 @@ import Reviews from "./Reviews";
 import { reviews } from "../../Products/types/Types";
 import ReviewForm from "./ReviewForm";
 import { AnimatePresence, motion } from "framer-motion";
-import { useAppSelector } from "../../../Store/reduxHooks.tsx/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../Store/reduxHooks.tsx/hooks";
+import { siteMapSliceAction } from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 
 const ReviewsContainer: React.FC<{
   reviews: reviews[];
@@ -11,12 +15,20 @@ const ReviewsContainer: React.FC<{
 }> = ({ reviews }) => {
   const userReviewed = reviews.length === 4;
   const loggedIn = useAppSelector((state) => state.authorization.loggedIn);
+  const dispatch = useAppDispatch();
+  const openAuthForm = () => {
+    dispatch(siteMapSliceAction.openMap());
+  };
   return (
     <aside className="w-full  space-y-10 flex flex-col justify-center items-start">
       <Reviews reviews={reviews} />
       {!userReviewed && loggedIn && <ReviewForm />}
       {!loggedIn && (
-        <p className="text-xs text-subColor_4 mx-auto">login to add review</p>
+        <p
+          onClick={openAuthForm}
+          className="cursor-pointer text-xs text-subColor_4 mx-auto">
+          login to add review
+        </p>
       )}
       <AnimatePresence>
         {userReviewed && (

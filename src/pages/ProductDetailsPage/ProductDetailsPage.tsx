@@ -12,6 +12,7 @@ const ProductDetailsPage = () => {
   const id = params.id;
 
   dispatch(productsAction.getSelectedProduct(id));
+
   const selectedProduct = useAppSelector(
     (state) => state.productsSlice.selectedProduct
   );

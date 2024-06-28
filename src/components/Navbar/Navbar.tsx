@@ -7,27 +7,26 @@ import { AnimatePresence } from "framer-motion";
 import MenuItems from "./Menu/MenuItems";
 import Logo from "./Logo/Logo";
 import MenuIcon from "./MenuIcon/MenuIcon";
-import { useDarkMoodToggler } from "../../utilities/useDarkMoodToggler";
 import authorize from "../../utilities/authorize";
 import { useEffect } from "react";
 import { getAPICartItems } from "../../Store/StoreSlices/CartSlice/CartSlice";
+import UseAsMember from "./UseAsMember/UseAsMember";
 const Navbar = () => {
-  const { darkMoodToggler } = useDarkMoodToggler();
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector((state) => state.siteMapSlice.isOpen);
   useEffect(() => {
     //refresher function for render.com avoiding auth server sleeping
     authorize("login", "moimenwy@gmail.com", "01144026773");
     //refresher function for render.com avoiding user prodcuts server sleeping
-    dispatch(getAPICartItems("ba3e633f-de49-b3-8b-8c3b110ff"));
+    dispatch(getAPICartItems("initialemptyarray"));
   }, []);
   return (
     <nav className="z-10 sm:mb-2 sticky sm:fixed top-0  w-full h-20  dark:bg-gradient-to-r dark:from-darkViolet dark:via-simidarkViolet dark:to-darkViolet bg-gradient-to-r from-violet-200 to-lightestViolet">
       <Container>
         <aside className="h-full flex justify-between items-center">
           <Logo />
-          <button onClick={darkMoodToggler}>Toogle</button>
           <MenuIcon />
+          <UseAsMember />
         </aside>
         <AnimatePresence>{isOpen && <MenuItems />}</AnimatePresence>
       </Container>
