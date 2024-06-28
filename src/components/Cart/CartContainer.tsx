@@ -5,9 +5,11 @@ import CartCosting from "./CartDetails/CartCostingItems";
 import CartCostingOptions from "./CartDetails/CartCostingOptions";
 import Button from "../Button";
 import {
+  useAppDispatch,
   // useAppDispatch,
   useAppSelector,
 } from "../../Store/reduxHooks.tsx/hooks";
+import { siteMapSliceAction } from "../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 // import { useEffect } from "react";
 // import { getAPICartItems } from "../../Store/StoreSlices/CartSlice/CartSlice";
 
@@ -18,15 +20,12 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
   cartItems.forEach((item) => {
     totalCost += item.totalPrice;
   });
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const loggedIn = useAppSelector((state) => state.authorization.loggedIn);
-  // const userID = useAppSelector((state) => state.authorization.responseData.id);
   const cartHasItems = cartItems.length !== 0;
-
-  // useEffect(() => {
-  //   loggedIn && dispatch(getAPICartItems(userID));
-  // }, []);
-
+  const openAuthForm = () => {
+    dispatch(siteMapSliceAction.openMap());
+  };
   return (
     <Container>
       <main className="flex flex-col justify-between sm:justify-around sm:flex-row-reverse min-w-48">
@@ -49,7 +48,12 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
         ) : (
           <span className="mt-40 text-center text-middarkViolet flex justify-center items-end gap-x-6">
             <h1 className="text-2xl font-bold  ">
-              to manage cart you should login
+              to manage cart you should{" "}
+              <span
+                className="hover:text-subColor_4 cursor-pointer"
+                onClick={openAuthForm}>
+                login
+              </span>
             </h1>
             <span className="text-7xl">!</span>
           </span>

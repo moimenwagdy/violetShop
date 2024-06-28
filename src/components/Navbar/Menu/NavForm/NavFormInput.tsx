@@ -9,7 +9,6 @@ export const NavFormInput: React.FC<{
   isSignUp?: boolean;
   additionalStyles?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  autofocus?: boolean;
 }> = ({
   id,
   type,
@@ -21,7 +20,6 @@ export const NavFormInput: React.FC<{
   isSignUp,
   passwordConfirming,
   additionalStyles,
-  autofocus,
 }) => {
   const passDontMatch = isSignUp && conflict && passwordConfirming;
   return (
@@ -33,7 +31,6 @@ export const NavFormInput: React.FC<{
         {title}
       </label>
       <input
-        autoFocus={autofocus}
         name={name}
         placeholder={placeHolder}
         type={type}
