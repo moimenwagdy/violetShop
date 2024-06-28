@@ -23,14 +23,13 @@ const UseAsMember = () => {
         <motion.button
           onClick={fakeLogin}
           variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
+            hidde: { opacity: 0 },
+            visibl: { opacity: 1 },
           }}
-          transition={{ delay: 5 }}
-          initial="hidden"
-          animate="visible"
-          className="absolute -bottom-16 left-[2%]  px-4 py-1 rounded-md bg-subColor_4 text-white hover:bg-white hover:text-subColor_4">
-          use as a member
+          initial="hidde"
+          animate="visibl"
+          className=" px-4 py-1 rounded-md bg-subColor_4 text-white hover:bg-white hover:text-subColor_4">
+          use as a Viewer
         </motion.button>
       )}
     </>

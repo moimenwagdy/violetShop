@@ -9,12 +9,11 @@ const Logo: React.FC = () => {
   };
 
   return (
-    
       <img
         onClick={navigateToHome}
         src={`../../images/${isDark ? "lightLogo" : "darkLogo"}.png`}
         className="rounded-xl max-h-[70%] cursor-pointer"
-        alt="fsdfs"
+        alt="Logo"
       />
   );
 };

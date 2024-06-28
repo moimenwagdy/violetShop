@@ -25,6 +25,7 @@ const MenuContainer: React.FC<{ children: ReactNode }> = ({ children }) => {
   });
   return (
     <motion.aside
+      layout
       ref={menuRef}
       variants={{
         hidden: {
@@ -37,7 +38,7 @@ const MenuContainer: React.FC<{ children: ReactNode }> = ({ children }) => {
       animate="visible"
       exit="hidden"
       transition={{ stiffness: 75, type: "spring", damping: 18 }}
-      className="absolute top-0 right-0 z-50 h-[92vh] sm:h-screen
+      className="absolute top-0 right-0 z-50 h-[95vh] sm:h-screen
   w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-1">
       <ul
         className={`${

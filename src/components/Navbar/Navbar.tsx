@@ -10,7 +10,6 @@ import MenuIcon from "./MenuIcon/MenuIcon";
 import authorize from "../../utilities/authorize";
 import { useEffect } from "react";
 import { getAPICartItems } from "../../Store/StoreSlices/CartSlice/CartSlice";
-import UseAsMember from "./UseAsMember/UseAsMember";
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector((state) => state.siteMapSlice.isOpen);
@@ -26,7 +25,6 @@ const Navbar = () => {
         <aside className="h-full flex justify-between items-center">
           <Logo />
           <MenuIcon />
-          <UseAsMember />
         </aside>
         <AnimatePresence>{isOpen && <MenuItems />}</AnimatePresence>
       </Container>

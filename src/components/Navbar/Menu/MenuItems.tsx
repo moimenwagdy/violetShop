@@ -12,6 +12,7 @@ import UserData from "./UserData/UserData";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "../../Button";
 import DarkLightMood from "./DarkLightMood";
+import UseAsMember from "../UseAsMember/UseAsMember";
 
 const MenuItems = () => {
   const signedUp = useAppSelector((state) => state.authorization.signedUp);
@@ -30,10 +31,15 @@ const MenuItems = () => {
       <MenuItem title="Contact Us" />
       <MenuItem title="Services" />
       <DarkLightMood />
-      <motion.li layout className="h-fit border-t py-1">
+      <motion.li
+        layout
+        className="h-fit border-t py-1 flex flex-col justify-center">
         <UserData />
         <NavForm />
       </motion.li>
+      <li className="text-center">
+        <UseAsMember />
+      </li>
       <li>
         <Button
           variants="redButtonClose"

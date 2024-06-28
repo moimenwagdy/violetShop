@@ -1,7 +1,5 @@
 
 const HeaderMenuItem: React.FC<{ onClick: () => void }> = ({ onClick }) => {
-  
-
   return (
     <li
       onClick={onClick}

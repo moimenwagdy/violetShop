@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import Navbar from "../components/Navbar/Navbar";
 import { useAppSelector } from "../Store/reduxHooks.tsx/hooks";
+import { motion } from "framer-motion";
 
 const MainLayout = () => {
   const mood = useAppSelector((state) => state.darkMoodSlice.isDark);
@@ -9,12 +10,12 @@ const MainLayout = () => {
     ele?.classList.add("dark");
   } else ele?.classList.remove("dark");
 
-  
+
   return (
     <>
-      <div className="sm:mb-20">
+      <motion.div layout className="sm:mb-20">
         <Navbar />
-      </div>
+      </motion.div>
       <Outlet />
     </>
   );
