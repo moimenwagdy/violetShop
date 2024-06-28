@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { cartPayload } from "../types";
+import { cartPayload } from "../Types/types";
 import { faSquareMinus, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import {
   useAppDispatch,

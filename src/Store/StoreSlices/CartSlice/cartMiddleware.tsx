@@ -1,6 +1,6 @@
 // cartMiddleware.ts
 import { Middleware } from "@reduxjs/toolkit";
-import cartSlice from "./CartSlice"; // Assuming you export cartSlice correctly
+import cartSlice from "./CartSlice"; 
 import setUserCartItems from "../../../utilities/setUserCartItems";
 interface CustomAction {
   type: string;
@@ -8,7 +8,7 @@ interface CustomAction {
 const cartMiddleware: Middleware = (store) => (next) => async (action) => {
   const typedAction = action as CustomAction;
   const result = next(typedAction);
-  // Actions that modify the cart state
+
   const actionsThatModifyCart: string[] = [
     cartSlice.actions.addToCart.type,
     cartSlice.actions.removeFromCart.type,
@@ -16,7 +16,6 @@ const cartMiddleware: Middleware = (store) => (next) => async (action) => {
     cartSlice.actions.decreaseOneItemQuan.type,
   ];
 
-  // Check if the dispatched action is one that modifies the cart
   if (actionsThatModifyCart.includes(typedAction.type)) {
     const { cartProducts } = store.getState().cartSlice;
     const { responseData } = store.getState().authorization;

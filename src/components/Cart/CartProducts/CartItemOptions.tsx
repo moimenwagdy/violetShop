@@ -7,8 +7,8 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
-import Button from "../../Button";
-import { cartPayload } from "../types";
+import Button from "../../MultiStyledButton/Button";
+import { cartPayload } from "../Types/types";
 import { productsDetailsActions } from "../../../Store/StoreSlices/ProductsDetailsSlice/ProductsDetailsSlice";
 
 const CartItemOptions: React.FC<{ product: cartPayload }> = ({ product }) => {

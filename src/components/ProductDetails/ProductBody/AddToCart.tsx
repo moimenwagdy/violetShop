@@ -9,8 +9,8 @@ import {
   useAppDispatch,
   // useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
-import Button from "../../Button";
-import { cartPayload } from "../../Cart/types";
+import Button from "../../MultiStyledButton/Button";
+import { cartPayload } from "../../Cart/Types/types";
 import product from "../../Products/types/Types";
 import QuantityForm from "./QuantityForm";
 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import RatingStarsSVG from "./RatingStarsSVG";
+import RatingStarsSVG from "../RatingStarsComponent/RatingStarsSVG";
 import product from "./types/Types";
 import { useNavigate } from "react-router";
 import { useAppDispatch } from "../../Store/reduxHooks.tsx/hooks";

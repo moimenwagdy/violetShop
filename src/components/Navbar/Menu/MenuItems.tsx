@@ -4,14 +4,14 @@ import {
 } from "../../../Store/reduxHooks.tsx/hooks";
 import siteMapSlice from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 import { MenuItem } from "./MenuItem";
-import HeaderMenuItem from "./HeaderMenuItem";
+import HeaderMenuItem from "./MenuHeader/HeaderMenuItem";
 import MenuContainer from "./MenuContainer";
 import NavForm from "./NavForm/NavForm";
 import { authorizationAction } from "../../../Store/StoreSlices/authorizationSlice/authorization";
 import UserData from "./UserData/UserData";
 import { AnimatePresence, motion } from "framer-motion";
-import Button from "../../Button";
-import DarkLightMood from "./DarkLightMood";
+import Button from "../../MultiStyledButton/Button";
+import DarkLightMood from "./DarkLightMood/DarkLightMood";
 import UseAsMember from "../UseAsMember/UseAsMember";
 
 const MenuItems = () => {

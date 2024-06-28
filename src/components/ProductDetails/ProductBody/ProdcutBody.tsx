@@ -4,7 +4,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
-import Button from "../../Button";
+import Button from "../../MultiStyledButton/Button";
 import product from "../../Products/types/Types";
 import AddToCart from "./AddToCart";
 import { siteMapSliceAction } from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";

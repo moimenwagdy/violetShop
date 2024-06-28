@@ -4,7 +4,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
-import Button from "../../Button";
+import Button from "../../MultiStyledButton/Button";
 import { reviews } from "../../Products/types/Types";
 import ReviewItem from "./ReviewItem";
 

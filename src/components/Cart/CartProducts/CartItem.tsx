@@ -1,6 +1,6 @@
-import { cartPayload } from "../types";
+import { cartPayload } from "../Types/types";
 import CartItemOptions from "./CartItemOptions";
-import RatingStarsSVG from "../../Products/RatingStarsSVG";
+import RatingStarsSVG from "../../RatingStarsComponent/RatingStarsSVG";
 import CartItemHeader from "./CartItemHeader";
 
 const CartItem: React.FC<{ product: cartPayload }> = ({ product }) => {

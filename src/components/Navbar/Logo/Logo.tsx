@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import { useAppSelector } from "../../../Store/reduxHooks.tsx/hooks";
+import { logoImages } from "../../../utilities/GlobalEnums/enums";
 
 const Logo: React.FC = () => {
   const navigate = useNavigate();
@@ -9,12 +10,14 @@ const Logo: React.FC = () => {
   };
 
   return (
-      <img
-        onClick={navigateToHome}
-        src={`../../images/${isDark ? "lightLogo" : "darkLogo"}.png`}
-        className="rounded-xl max-h-[70%] cursor-pointer"
-        alt="Logo"
-      />
+    <img
+      onClick={navigateToHome}
+      src={`../../images/${
+        isDark ? logoImages.lighLogo : logoImages.darkLogo
+      }.png`}
+      className="rounded-xl max-h-[70%] cursor-pointer"
+      alt="Logo"
+    />
   );
 };
 

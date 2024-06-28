@@ -1,4 +1,4 @@
-import product, { meta, reviews } from "../Products/types/Types";
+import product, { meta, reviews } from "../../Products/types/Types";
 
 export interface cartItem extends product {
   quantity: number;

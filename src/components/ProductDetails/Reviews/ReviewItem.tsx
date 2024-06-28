@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import RatingStarsSVG from "../../Products/RatingStarsSVG";
+import RatingStarsSVG from "../../RatingStarsComponent/RatingStarsSVG";
 import { reviews } from "../../Products/types/Types";
 
 const ReviewItem: React.FC<{

@@ -1,5 +1,5 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { cartPayload } from "../../../components/Cart/types";
+import { cartPayload } from "../../../components/Cart/Types/types";
 import axios from "axios";
 const getUserCartItemsEndPoint = import.meta.env.VITE_SET_CART_ITEMS_ENDPOINT;
 export interface cartProducts {

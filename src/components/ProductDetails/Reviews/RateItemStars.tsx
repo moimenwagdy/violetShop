@@ -3,7 +3,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../Store/reduxHooks.tsx/hooks";
-import RatingStarsSVG from "../../Products/RatingStarsSVG";
+import RatingStarsSVG from "../../RatingStarsComponent/RatingStarsSVG";
 
 const RateItemStars = () => {
   const dispatch = useAppDispatch();

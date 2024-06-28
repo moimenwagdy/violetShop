@@ -1,6 +1,6 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { getCategories } from "./functions/getCategories";
-import Button from "../Button";
+import Button from "../MultiStyledButton/Button";
 import {
   useAppDispatch,
   useAppSelector,

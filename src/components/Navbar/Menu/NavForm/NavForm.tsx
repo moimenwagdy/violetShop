@@ -7,7 +7,7 @@ import {
 } from "../../../../Store/reduxHooks.tsx/hooks";
 import { authorizationAction } from "../../../../Store/StoreSlices/authorizationSlice/authorization";
 import { AnimatePresence, motion } from "framer-motion";
-import Button from "../../../Button";
+import Button from "../../../MultiStyledButton/Button";
 
 const NavForm = () => {
   const {
@@ -61,7 +61,6 @@ const NavForm = () => {
               />
             )}
             <NavFormInput
-              autofocus={true}
               title="Email"
               name="email"
               type="text"

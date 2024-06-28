@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
-import Button from "../Button";
+import Button from "../MultiStyledButton/Button";
 import {
   useAppDispatch,
   useAppSelector,

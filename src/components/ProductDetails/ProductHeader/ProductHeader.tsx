@@ -1,4 +1,4 @@
-import RatingStarsSVG from "../../Products/RatingStarsSVG";
+import RatingStarsSVG from "../../RatingStarsComponent/RatingStarsSVG";
 import product from "../../Products/types/Types";
 
 const ProductHeader: React.FC<{ product: product }> = ({ product }) => {

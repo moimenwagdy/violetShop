@@ -6,7 +6,7 @@ import {
 import { reviews } from "../../Products/types/Types";
 import { productsAction } from "../../../Store/StoreSlices/productsSlice/slice";
 import { NavFormInput } from "../../Navbar/Menu/NavForm/NavFormInput";
-import Button from "../../Button";
+import Button from "../../MultiStyledButton/Button";
 import RateItemStars from "./RateItemStars";
 
 const ReviewForm = () => {

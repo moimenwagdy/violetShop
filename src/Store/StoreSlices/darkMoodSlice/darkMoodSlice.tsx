@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { darkmood } from "../../../utilities/GlobalEnums/enums";
 export interface darkMoood {
   isDark: boolean | undefined;
 }
 
-const localStorageHasDaarkMood = localStorage.getItem("mood");
+const localStorageHasDaarkMood = localStorage.getItem(darkmood.mood);
 
-const isDark = localStorageHasDaarkMood === "dark";
+const isDark = localStorageHasDaarkMood === darkmood.dark;
 const init: darkMoood = { isDark: isDark ? true : false };
 
 const darkMoodSlice = createSlice({
@@ -15,10 +16,10 @@ const darkMoodSlice = createSlice({
     darkMood: (state, actions) => {
       state.isDark = actions.payload;
       if (state.isDark) {
-        localStorage.setItem("mood", "dark");
+        localStorage.setItem(darkmood.mood, darkmood.dark);
       }
       if (!state.isDark) {
-        localStorage.removeItem("mood");
+        localStorage.removeItem(darkmood.mood);
       }
     },
   },

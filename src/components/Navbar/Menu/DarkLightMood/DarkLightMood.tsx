@@ -5,8 +5,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../../../Store/reduxHooks.tsx/hooks";
-import { useDarkMoodToggler } from "../../../utilities/useDarkMoodToggler";
+import { useAppSelector } from "../../../../Store/reduxHooks.tsx/hooks";
+import { useDarkMoodToggler } from "../../../../utilities/DarkMoodCustomHook/useDarkMoodToggler";
 
 const DarkLightMood = () => {
   const [icon, setIcon] = useState<IconDefinition>(faMoon);

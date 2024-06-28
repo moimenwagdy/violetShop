@@ -1,5 +1,5 @@
 import CartItem from "./CartItem";
-import { cartPayload } from "../types";
+import { cartPayload } from "../Types/types";
 
 const CartItems: React.FC<{ cartItems: cartPayload[] }> = ({ cartItems }) => {
   

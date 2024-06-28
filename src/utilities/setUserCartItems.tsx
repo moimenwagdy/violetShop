@@ -1,6 +1,6 @@
 import axios from "axios";
 import { payloadType } from "../Store/StoreSlices/authorizationSlice/authorization";
-import { cartPayload } from "../components/Cart/types";
+import { cartPayload } from "../components/Cart/Types/types";
 const setCartItemsEndPoint = import.meta.env.VITE_SET_CART_ITEMS_ENDPOINT;
 export default async function setUserCartItems(
   responseData: payloadType,
