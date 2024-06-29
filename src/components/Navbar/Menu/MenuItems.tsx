@@ -32,7 +32,6 @@ const MenuItems = () => {
       <MenuItem title="Services" />
       <DarkLightMood />
       <motion.li
-        layout
         className="h-fit border-t py-1 flex flex-col justify-center">
         <UserData />
         <NavForm />

@@ -1,7 +1,7 @@
 import RatingStarsSVG from "../../RatingStarsComponent/RatingStarsSVG";
 import product from "../../Products/types/Types";
 
-const ProductHeader: React.FC<{ product: product }> = ({ product }) => {
+const ProductDetailsHeader: React.FC<{ product: product }> = ({ product }) => {
   const afterDisscount =
     product.price &&
     (product.price * (1 - product.discountPercentage / 100)).toFixed(2);
@@ -23,4 +23,4 @@ const ProductHeader: React.FC<{ product: product }> = ({ product }) => {
   );
 };
 
-export default ProductHeader;
+export default ProductDetailsHeader;

@@ -1,11 +1,11 @@
 import { Container } from "../Container/Container";
 import product from "../Products/types/Types";
-import ProdcutBody from "./ProductBody/ProdcutBody";
-import ProductHeader from "./ProductHeader/ProductHeader";
 import Images from "./ImagesComponent/Images";
-import ProductInfo from "./ProductInfo/ProductInfo";
+import ProductInfo from "./ProductDetailsInfo/ProductInfo";
 import ReviewsContainer from "./Reviews/ReviewsContainer";
-import ProductsSuggetions from "./ProductsSuggetions/ProductsSuggetions";
+import ProductsSuggetions from "./ProductsDetailsSuggetions/ProductsSuggetions";
+import ProdcutDetailsBody from "./ProductDetailsBody/ProdcutDetailsBody";
+import ProductDetailsHeader from "./ProductDetailsHeader/ProductDetailsHeader";
 
 const productDetailsContainer: React.FC<{ product: product }> = ({
   product,
@@ -22,10 +22,10 @@ const productDetailsContainer: React.FC<{ product: product }> = ({
             <div className="mt-10 w-full">
               <div className="max-h-fit">
                 <span className="w-full flex justify-center sm:justify-start items-start mt-4 ">
-                  <ProductHeader product={product} />
+                  <ProductDetailsHeader product={product} />
                 </span>
               </div>
-              <ProdcutBody product={product} />
+              <ProdcutDetailsBody product={product} />
             </div>
           </aside>
           <article className="mt-10 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[30%] mx-auto">

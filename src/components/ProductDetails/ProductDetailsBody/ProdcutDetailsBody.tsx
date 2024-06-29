@@ -9,7 +9,7 @@ import product from "../../Products/types/Types";
 import AddToCart from "./AddToCart";
 import { siteMapSliceAction } from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 
-const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
+const ProdcutDetailsBody: React.FC<{ product: product }> = ({ product }) => {
   const dispatch = useAppDispatch();
   const Cart = useAppSelector((state) => state.cartSlice.cartProducts);
   const removeFromCart = () => {
@@ -19,7 +19,9 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
   const idExsit = Cart.findIndex((item) => item.id === product.id);
   const itemExist = idExsit !== -1;
   const outOffStock = product.stock === 0;
-  const cartIsEmpty = useAppSelector((state) => state.cartSlice.cartIsEmpty);
+  const cartIsEmpty: boolean = useAppSelector(
+    (state) => state.cartSlice.cartIsEmpty
+  );
   function visitCart() {
     navigate("/cart");
   }
@@ -87,4 +89,4 @@ const ProdcutBody: React.FC<{ product: product }> = ({ product }) => {
   );
 };
 
-export default ProdcutBody;
+export default ProdcutDetailsBody;
