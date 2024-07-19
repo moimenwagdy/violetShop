@@ -13,7 +13,6 @@ const UseAsMember = () => {
   const dispatch = useAppDispatch();
   const fakeLogin = async () => {
     const auth = await authorize("login", email, password);
-    console.log(auth);
     dispatch(authorizationAction.setLoggedIn(true));
     dispatch(authorizationAction.setResponseData(auth));
     dispatch(getAPICartItems(auth.id));

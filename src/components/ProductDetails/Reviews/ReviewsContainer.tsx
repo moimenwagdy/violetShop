@@ -18,6 +18,7 @@ const ReviewsContainer: React.FC<{
   const dispatch = useAppDispatch();
   const openAuthForm = () => {
     dispatch(siteMapSliceAction.openMap());
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
     <aside className="w-full  space-y-10 flex flex-col justify-center items-start">

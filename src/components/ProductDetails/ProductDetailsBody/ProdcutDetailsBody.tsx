@@ -28,6 +28,7 @@ const ProdcutDetailsBody: React.FC<{ product: product }> = ({ product }) => {
   const LoggedIn = useAppSelector((state) => state.authorization.loggedIn);
   const openAuthForm = () => {
     dispatch(siteMapSliceAction.openMap());
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
     <>

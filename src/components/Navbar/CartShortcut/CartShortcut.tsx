@@ -1,9 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppSelector } from "../../../Store/reduxHooks.tsx/hooks";
 import { faCartFlatbed } from "@fortawesome/free-solid-svg-icons";
-import {  useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
 
 const CartShortcut = () => {
+  const [scrollY, setScrollY] = useState(window.scrollY);
   const navigate = useNavigate();
 
   const cartItemsLength = useAppSelector(
@@ -12,10 +14,25 @@ const CartShortcut = () => {
   const goToCart = () => {
     navigate("/cart");
   };
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const ChangeCartShortCutPosition = scrollY > 80;
   return (
     <div
       onClick={goToCart}
-      className="cursor-pointer absolute -bottom-14 flex justify-center items-center space-x-2">
+      className={`cursor-pointer  ${
+        ChangeCartShortCutPosition ? "top-8" : "top-24"
+      } fixed sm:absolute sm:top-24 flex justify-center items-center space-x-2`}>
       <FontAwesomeIcon
         className="text-3xl text-darkViolet"
         icon={faCartFlatbed}
