@@ -80,6 +80,7 @@ export const getAPICartItems = createAsyncThunk<cartPayload[], string>(
   "cartSlice/api",
   async (id: string) => {
     const response = await axios.get(`${getUserCartItemsEndPoint}/${id}`);
+    console.log(response.data);
     return response.data;
   }
 );

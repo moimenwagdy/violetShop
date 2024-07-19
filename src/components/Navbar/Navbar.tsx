@@ -12,8 +12,11 @@ import { useEffect } from "react";
 import { getAPICartItems } from "../../Store/StoreSlices/CartSlice/CartSlice";
 
 import CartShortcut from "./CartShortcut/CartShortcut";
+import { useLocation } from "react-router";
 const Navbar = () => {
+  const location = useLocation();
   const dispatch = useAppDispatch();
+  const isCartPage = location.pathname.includes("cart");
   const isOpen = useAppSelector((state) => state.siteMapSlice.isOpen);
   const isLoggedIn = useAppSelector((state) => state.authorization.loggedIn);
 
@@ -30,7 +33,7 @@ const Navbar = () => {
         <aside className="h-full flex justify-between items-center">
           <Logo />
           <span className="flex justify-center items-center space-x-8">
-            {isLoggedIn && <CartShortcut />}
+            {isLoggedIn && !isCartPage && <CartShortcut />}
             <MenuIcon />
           </span>
         </aside>

@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppSelector } from "../../../Store/reduxHooks.tsx/hooks";
 import { faCartFlatbed } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 
 const CartShortcut = () => {
   const navigate = useNavigate();
+
   const cartItemsLength = useAppSelector(
     (state) => state.cartSlice.cartProducts.length
   );

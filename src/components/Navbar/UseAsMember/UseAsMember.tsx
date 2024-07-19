@@ -5,6 +5,7 @@ import {
 } from "../../../Store/reduxHooks.tsx/hooks";
 import { authorizationAction } from "../../../Store/StoreSlices/authorizationSlice/authorization";
 import authorize from "../../../utilities/authorize";
+import { getAPICartItems } from "../../../Store/StoreSlices/CartSlice/CartSlice";
 const email = import.meta.env.VITE_FAKE_LOGIN_EMAIL;
 const password = import.meta.env.VITE_FAKE_LOGIN_PASSWORD;
 const UseAsMember = () => {
@@ -15,6 +16,7 @@ const UseAsMember = () => {
     console.log(auth);
     dispatch(authorizationAction.setLoggedIn(true));
     dispatch(authorizationAction.setResponseData(auth));
+    dispatch(getAPICartItems(auth.id));
   };
 
   return (
