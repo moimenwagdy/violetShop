@@ -28,7 +28,7 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
   };
   return (
     <Container>
-      <main className="flex flex-col justify-between sm:justify-around sm:flex-row-reverse min-w-48">
+      <main className="flex flex-col justify-between sm:justify-around sm:flex-row-reverse min-w-48 min-h-screen">
         {loggedIn ? (
           <>
             <section className="mt-10 shrink">
@@ -46,9 +46,9 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
             </aside>
           </>
         ) : (
-          <span className="mt-40 text-center text-middarkViolet flex justify-center items-end gap-x-6">
+          <span className="text-center text-middarkViolet flex justify-center items-center gap-x-6 -mt-10">
             <h1 className="text-2xl font-bold  ">
-              to manage cart you should{" "}
+              to manage cart you should
               <span
                 className="hover:text-subColor_4 cursor-pointer"
                 onClick={openAuthForm}>
