@@ -1,20 +1,24 @@
+import Logo from "../components/Navbar/Logo/Logo";
+
 const Footer = () => {
   return (
     <footer className=" mt-40 h-fit bg-lightViolet text-darkBasicBackground pt-10 ">
       <div className=" flex flex-col md:flex-row justify-between">
         <div className=" px-4 mb-6 md:mb-0 text-center sm:text-start">
-          <h2 className="ps-2 text-2xl font-extrabold bg-gradient-to-r from-white/50 to-white/01">
-            VioletShop
-          </h2>
-          <p className="bg-gradient-to-r from-white/50 to-white/01 ps-2">
+          <div className="w-48">
+            <Logo />
+          </div>
+          <p className=" text-white">
             Your one-stop shop for all things violet. We provide the best
             quality products with an amazing shopping experience.
           </p>
         </div>
         {/* ///////////////////////////////// */}
-        <div className="flex flex-row justify-center px-4 py-2 gap-x-16 md:gap-x-6 ">
+        <div className="flex flex-row justify-center px-4 py-4 gap-x-16 md:gap-x-6 md:pe-20">
           <div className="mb-6 md:mb-0">
-            <h3 className="text-lg font-semibold mb-1 ">Useful Links</h3>
+            <h3 className="text-lg text-center font-semibold mb-1 ">
+              Useful Links
+            </h3>
             <ul className="space-y-1 flex flex-col justify-center items-center">
               <li>
                 <a href="" className="hover:underline">
@@ -26,21 +30,22 @@ const Footer = () => {
                   Shop
                 </a>
               </li>
-              <li>
-                <a href="" className="hover:underline">
+              <li className="text-center">
+                <a href="" className="hover:underline ">
                   About Us
                 </a>
               </li>
-              <li>
+              <li className="text-center">
                 <a href="" className="hover:underline">
                   Contact Us
                 </a>
               </li>
             </ul>
           </div>
-          {/* /////////////////////////// */}
           <div>
-            <h3 className="text-lg font-semibold mb-1 ">Follow Us</h3>
+            <h3 className="text-lg font-semibold mb-1 text-center">
+              Follow Us
+            </h3>
             <ul className="space-y-1 flex flex-col justify-center items-center">
               <li>
                 <a href="" className="hover:underline">

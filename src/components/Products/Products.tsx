@@ -17,6 +17,7 @@ import product, { ProductsError } from "./types/Types";
 import { AxiosError } from "axios";
 import { useEffect } from "react";
 import LoadingComponent from "../Loading/Loading";
+// import LoadingComponent from "../Loading/Loading";
 
 const Products: React.FC = () => {
   const allowFetch = useAppSelector((state) => state.productsSlice.allowFetch);
@@ -33,6 +34,7 @@ const Products: React.FC = () => {
   });
   //////////////////////////////
   useEffect(() => {
+    isLoading && dispatch(productsAction.setIsLoading());
     isSuccess &&
       allowFetch &&
       dispatch(productsAction.saveProducts({ products: data! }));
@@ -105,12 +107,14 @@ const Products: React.FC = () => {
               <ProductCard key={product.id} product={product} />
             ))}
       </motion.ul>
-      <Button
-        title="Show More"
-        variants="redButton"
-        additionalStyles="mt-2"
-        onClick={showMore}
-      />
+      {!isLoading && (
+        <Button
+          title="Show More"
+          variants="redButton"
+          additionalStyles="mt-2"
+          onClick={showMore}
+        />
+      )}
       {showUpArrow && (
         <FontAwesomeIcon
           onClick={toTop}

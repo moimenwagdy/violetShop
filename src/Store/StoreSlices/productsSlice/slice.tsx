@@ -52,6 +52,7 @@ const productsSlice = createSlice({
     updatedReviews: updatedReviews,
     hightRecommended: init,
     mostDiscount: init,
+    isLoading: false,
   },
   reducers: {
     saveProducts: (state, action: { payload: { products: product[] } }) => {
@@ -79,6 +80,7 @@ const productsSlice = createSlice({
       });
       state.hightRecommended = [...hightestStars];
       state.mostDiscount = [...mostDiscount];
+      state.isLoading = false;
     },
     dontAllowFetch: (state) => {
       state.allowFetch = false;
@@ -134,6 +136,9 @@ const productsSlice = createSlice({
     },
     setIsFiltring: (state, action) => {
       state.isFiltering = action.payload;
+    },
+    setIsLoading: (state) => {
+      state.isLoading = true;
     },
   },
 });

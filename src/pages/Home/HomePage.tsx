@@ -15,6 +15,7 @@ const HomePage = () => {
   const {
     data,
     isSuccess,
+    isLoading,
   }: UseQueryResult<product[], AxiosError<ProductsError>> = useQuery({
     queryKey: ["products"],
     queryFn: getFullProducts,
@@ -22,6 +23,7 @@ const HomePage = () => {
   });
   const dispatch = useAppDispatch();
   useEffect(() => {
+    isLoading && dispatch(productsAction.setIsLoading());
     isSuccess &&
       allowFetch &&
       dispatch(productsAction.saveProducts({ products: data! }));

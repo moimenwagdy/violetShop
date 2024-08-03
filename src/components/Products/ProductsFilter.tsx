@@ -8,18 +8,18 @@ import {
 import { productsAction } from "../../Store/StoreSlices/productsSlice/slice";
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import LoadingComponent from "../Loading/Loading";
 
 const Filter = () => {
   const dispatch = useAppDispatch();
   const formRef = useRef<HTMLFormElement>(null);
   const filterOffset = useAppSelector((state) => state.productsSlice.offset);
-  const { data, isSuccess }: UseQueryResult<string[], Error> = useQuery<
-    string[]
-  >({
-    queryKey: ["filter"],
-    queryFn: getCategories,
-    staleTime: 600000,
-  });
+  const { data, isSuccess, isLoading }: UseQueryResult<string[], Error> =
+    useQuery<string[]>({
+      queryKey: ["filter"],
+      queryFn: getCategories,
+      staleTime: 600000,
+    });
   isSuccess && console.log(data);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,6 +53,11 @@ const Filter = () => {
       exit={{ opacity: 0, y: -10 }}
       id="filters"
       className="absolute sm:fixed z-[10] left-[2%] top-2 sm:top-[14%] w-[96%] ring-1 ring-black dark:ring-white p-4 bg-white dark:bg-stone-700 dark:text-white font-handWrite shadow-md rounded-lg flex justify-between">
+      {isLoading && (
+        <div className="w-full flex justify-center items-center">
+          <LoadingComponent />
+        </div>
+      )}
       <form
         ref={formRef}
         onSubmit={handleSubmit}
