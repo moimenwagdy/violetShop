@@ -30,14 +30,16 @@ const CartShortcut = () => {
   return (
     <div
       onClick={goToCart}
-      className={`cursor-pointer  ${
+      className={`cursor-pointer dark:bg-zinc-300 dark:p-1 dark:rounded-lg me-2 ${
         ChangeCartShortCutPosition ? "top-8" : "top-32"
       } fixed sm:absolute sm:top-32 flex justify-center items-center space-x-2 `}>
       <FontAwesomeIcon
-        className="text-3xl text-darkViolet"
+        className="text-3xl text-darkViolet "
         icon={faCartFlatbed}
       />
-      <p className="font-handWrite text-xl">{cartItemsLength}</p>
+      <p className="font-handWrite text-xl text-darkViolet ">
+        {cartItemsLength}
+      </p>
     </div>
   );
 };
