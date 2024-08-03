@@ -10,8 +10,8 @@ const SliderButtons: React.FC<{
 }> = ({ icon, x, id }) => {
   const [a, setA] = useState<Element>();
   const xScroll = (i: number) => {
-    i === 1 && a!.scrollBy({ left: -150, behavior: "smooth" });
-    i === -1 && a!.scrollBy({ left: 150, behavior: "smooth" });
+    i === 1 && a!.scrollBy({ left: -200, behavior: "smooth" });
+    i === -1 && a!.scrollBy({ left: 200, behavior: "smooth" });
   };
   useEffect(() => {
     const scrollBox = document.querySelector(`#${id}`);

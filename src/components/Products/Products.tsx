@@ -11,9 +11,35 @@ import {
   faArrowAltCircleUp,
   faArrowDownShortWide,
 } from "@fortawesome/free-solid-svg-icons";
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import getFullProducts from "./functions/getfullProducts";
+import product, { ProductsError } from "./types/Types";
+import { AxiosError } from "axios";
+import { useEffect } from "react";
+import LoadingComponent from "../Loading/Loading";
 
 const Products: React.FC = () => {
+  const allowFetch = useAppSelector((state) => state.productsSlice.allowFetch);
   const dispatch = useAppDispatch();
+  ///////////////////////////
+  const {
+    data,
+    isSuccess,
+    isLoading,
+  }: UseQueryResult<product[], AxiosError<ProductsError>> = useQuery({
+    queryKey: ["products"],
+    queryFn: getFullProducts,
+    enabled: allowFetch === true,
+  });
+  //////////////////////////////
+  useEffect(() => {
+    isSuccess &&
+      allowFetch &&
+      dispatch(productsAction.saveProducts({ products: data! }));
+    isSuccess && dispatch(productsAction.dontAllowFetch());
+  }, [allowFetch, dispatch, isSuccess]);
+
+  ///////////////////////////
   //
   const filteredProducts = useAppSelector(
     (state) => state.productsSlice.filteredProducts
@@ -70,7 +96,7 @@ const Products: React.FC = () => {
         variants={{ hidden: { y: 1 }, visible: { y: 0 } }}
         initial="hidden"
         animate="visible"
-        className={`relative w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2`}>
+        className={`relative w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 `}>
         {filteredProducts &&
           ArrayIsNotEmpty &&
           filteredProducts
@@ -92,6 +118,7 @@ const Products: React.FC = () => {
           icon={faArrowAltCircleUp}
         />
       )}
+      {isLoading && <LoadingComponent />}
     </>
   );
 };

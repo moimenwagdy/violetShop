@@ -31,7 +31,7 @@ const ImageAndOptions: React.FC<{ product: product }> = ({ product }) => {
     <span className="flex flex-col space-y-2">
       <img
         src={product.thumbnail}
-        className="bg-productLighBG dark:bg-productLightkBG w-36 h-36 object-cover rounded-lg drop-shadow-xl shadow-xl dark:shadow-black/20  "
+        className="bg-productLighBG dark:bg-zinc-300 w-36 h-36 object-cover rounded-lg drop-shadow-xl shadow-xl dark:shadow-black/20  "
         alt={product.title}
       />
       <Button

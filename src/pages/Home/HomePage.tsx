@@ -25,8 +25,9 @@ const HomePage = () => {
     isSuccess &&
       allowFetch &&
       dispatch(productsAction.saveProducts({ products: data! }));
-    isSuccess && localStorage.setItem("lklk"[1], JSON.stringify(data));
+    isSuccess && dispatch(productsAction.dontAllowFetch());
   }, [allowFetch, dispatch, isSuccess]);
+  console.log(allowFetch);
   return <HomeContainer />;
 };
 
