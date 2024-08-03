@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Container } from "../../../Container/Container";
+import CallToActionButton from "./CallToActionButton";
 const LandingHeader = () => {
   const animatedHeader = "Here elegance meets convenience";
   const array = animatedHeader.split("");
@@ -40,6 +41,7 @@ const LandingHeader = () => {
             className="text-sm ">
             Discover your style with us !
           </motion.p>
+          <CallToActionButton />
         </div>
       </Container>
     </motion.header>
