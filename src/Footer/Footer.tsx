@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className=" mt-40 h-fit bg-lightViolet text-darkBasicBackground pt-10 ">
       <div className=" flex flex-col md:flex-row justify-between">
         <div className=" px-4 mb-6 md:mb-0 text-center sm:text-start">
-          <div className="w-48">
+          <div className="w-48 mx-auto mb-2 sm:mx-0 sm:mb-0">
             <Logo />
           </div>
           <p className=" text-white">

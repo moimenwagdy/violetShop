@@ -28,11 +28,10 @@ const MenuItems = () => {
       <MenuItem title="home" target="" />
       <MenuItem title="Products" target="products" />
       <MenuItem title="Cart" target="cart" />
-      <MenuItem title="Contact Us" />
-      <MenuItem title="Services" />
+      <MenuItem title="Contact Us" target="contact" />
+      <MenuItem title="About Us" target="about" />
       <DarkLightMood />
-      <motion.li
-        className="h-fit border-t py-1 flex flex-col justify-center">
+      <motion.li className="h-fit border-t py-1 flex flex-col justify-center">
         <UserData />
         <NavForm />
       </motion.li>
