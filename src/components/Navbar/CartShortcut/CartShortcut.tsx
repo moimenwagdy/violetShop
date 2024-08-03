@@ -32,7 +32,7 @@ const CartShortcut = () => {
       onClick={goToCart}
       className={`cursor-pointer  ${
         ChangeCartShortCutPosition ? "top-8" : "top-32"
-      } fixed sm:absolute sm:top-32 flex justify-center items-center space-x-2`}>
+      } fixed sm:absolute sm:top-32 flex justify-center items-center space-x-2 `}>
       <FontAwesomeIcon
         className="text-3xl text-darkViolet"
         icon={faCartFlatbed}

@@ -17,6 +17,9 @@ import product, { ProductsError } from "./types/Types";
 import { AxiosError } from "axios";
 import { useEffect } from "react";
 import LoadingComponent from "../Loading/Loading";
+import siteMapSlice, {
+  siteMapSliceAction,
+} from "../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 
 const Products: React.FC = () => {
   const allowFetch = useAppSelector((state) => state.productsSlice.allowFetch);

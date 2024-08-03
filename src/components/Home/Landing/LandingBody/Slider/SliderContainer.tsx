@@ -16,7 +16,7 @@ const SliderContainer: React.FC<{
       <h2 className="text-center text-darkViolet w-full md:w-1/4 bg-gradient-to-r font-handWrite from-slate-300 to-white mx-auto">
         {header}
       </h2>
-      <section className="w-full flex justify-around items-center">
+      <section className="w-full flex justify-evenly items-center">
         <SliderButtons icon={faChevronLeft} x={1} id={id} />
         <SliderItems items={items!} id={id} />
         <SliderButtons icon={faChevronRight} x={-1} id={id} />

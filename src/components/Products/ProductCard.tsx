@@ -8,7 +8,7 @@ const ProductCard: React.FC<{ product: product }> = ({ product }) => {
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
       initial="hidden"
       animate="visible"
-      className="dark-rounded-xl cursor-pointer hover:scale-[.99] 
+      className="dark:rounded-xl  hover:scale-[.99] 
       transition-transform 
       duration-75 relative bg-white dark:bg-transparent
      rounded p-2 dark:p-1 w-full"

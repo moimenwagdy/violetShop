@@ -52,7 +52,7 @@ const Filter = () => {
       animate="visible"
       exit={{ opacity: 0, y: -10 }}
       id="filters"
-      className="absolute sm:fixed z-[5] left-[2%] top-2 sm:top-[14%] w-[96%] ring-1 ring-black dark:ring-white p-4 bg-white dark:bg-stone-700 dark:text-white font-handWrite shadow-md rounded-lg flex justify-between">
+      className="absolute sm:fixed z-[10] left-[2%] top-2 sm:top-[14%] w-[96%] ring-1 ring-black dark:ring-white p-4 bg-white dark:bg-stone-700 dark:text-white font-handWrite shadow-md rounded-lg flex justify-between">
       <form
         ref={formRef}
         onSubmit={handleSubmit}

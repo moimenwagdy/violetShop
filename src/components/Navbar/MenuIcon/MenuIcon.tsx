@@ -5,12 +5,14 @@ import {
 } from "../../../Store/reduxHooks.tsx/hooks";
 import siteMapSlice from "../../../Store/StoreSlices/siteMapSlice/siteMapSlice";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { productsAction } from "../../../Store/StoreSlices/productsSlice/slice";
 
 const MenuIcon = () => {
   const isOpen = useAppSelector((state) => state.siteMapSlice.isOpen);
   const dispatch = useAppDispatch();
   const openSiteMap = () => {
     dispatch(siteMapSlice.actions.openMap());
+    dispatch(productsAction.setFilterIsOpen(false));
   };
 
   return (
