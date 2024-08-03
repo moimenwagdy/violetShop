@@ -17,7 +17,6 @@ import product, { ProductsError } from "./types/Types";
 import { AxiosError } from "axios";
 import { useEffect } from "react";
 import LoadingComponent from "../Loading/Loading";
-// import LoadingComponent from "../Loading/Loading";
 
 const Products: React.FC = () => {
   const allowFetch = useAppSelector((state) => state.productsSlice.allowFetch);
@@ -72,7 +71,7 @@ const Products: React.FC = () => {
 
   return (
     <>
-      <span className=" flex justify-between items-center">
+      <span className=" flex justify-start items-center gap-x-10 ">
         <div className="-space-x-1">
           <Button
             title="Filter"
@@ -90,7 +89,7 @@ const Products: React.FC = () => {
             title="Reset"
             variants="redButtonFree"
             onClick={resetFiler}
-            additionalStyles="mx-4 px-1 py-0 text-xs  "
+            additionalStyles=" text-xs"
           />
         )}
       </span>
