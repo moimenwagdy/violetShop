@@ -17,22 +17,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-1 ">Useful Links</h3>
             <ul className="space-y-1 flex flex-col justify-center items-center">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="" className="hover:underline">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="" className="hover:underline">
                   Shop
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="" className="hover:underline">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="" className="hover:underline">
                   Contact Us
                 </a>
               </li>
@@ -71,7 +71,7 @@ const Footer = () => {
           <h3 className="text-md font-semibold">Creators</h3>
           <p className="text-sm">
             Developed & designed by{" "}
-            <a href="#" className="underline">
+            <a href="" className="underline">
               mo'men wagdy
             </a>
           </p>
