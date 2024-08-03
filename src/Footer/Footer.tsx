@@ -14,7 +14,7 @@ const Footer = () => {
           </p>
         </div>
         {/* ///////////////////////////////// */}
-        <div className="flex flex-row justify-center px-4 py-4 gap-x-16 md:gap-x-6 md:pe-20">
+        <div className="flex flex-row justify-center px-4 pb-4 gap-x-16 md:gap-x-6 md:pe-20">
           <div className="mb-6 md:mb-0">
             <h3 className="text-lg text-center font-semibold mb-1 ">
               Useful Links
