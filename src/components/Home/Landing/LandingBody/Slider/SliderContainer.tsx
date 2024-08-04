@@ -3,7 +3,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import SliderButtons from "./SliderButtons";
+import SliderButtons from "../../../../SliderButtons/SliderButtons";
 import product from "../../../../Products/types/Types";
 import { useAppSelector } from "../../../../../Store/reduxHooks.tsx/hooks";
 import LoadingComponent from "../../../../Loading/Loading";
