@@ -29,7 +29,6 @@ const HomePage = () => {
       dispatch(productsAction.saveProducts({ products: data! }));
     isSuccess && dispatch(productsAction.dontAllowFetch());
   }, [allowFetch, dispatch, isSuccess]);
-  console.log(allowFetch);
   return <HomeContainer />;
 };
 

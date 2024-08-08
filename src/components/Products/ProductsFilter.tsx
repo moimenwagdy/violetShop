@@ -20,7 +20,6 @@ const Filter = () => {
       queryFn: getCategories,
       staleTime: 600000,
     });
-  isSuccess && console.log(data);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);

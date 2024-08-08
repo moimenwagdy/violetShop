@@ -46,11 +46,11 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
             </aside>
           </>
         ) : (
-          <span className="text-center text-middarkViolet flex justify-center items-center gap-x-6 -mt-10">
+          <span className="text-center text-middarkViolet flex justify-center items-center gap-x-6 mt-24 sm:mt-0">
             <h1 className="text-2xl font-bold  ">
               to manage cart you should
               <span
-                className="hover:text-subColor_4 cursor-pointer"
+                className="hover:text-subColor_4 cursor-pointer ms-2"
                 onClick={openAuthForm}>
                 login
               </span>

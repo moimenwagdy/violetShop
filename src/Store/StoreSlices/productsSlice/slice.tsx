@@ -64,6 +64,9 @@ const productsSlice = createSlice({
         ) {
           item.minimumOrderQuantity = 1;
         }
+        if (item.images.length > 5) {
+          item.images.splice(4, 2);
+        }
       });
       const shuffledArray = Array.from({ length: newArr.length }, (_, i) => i)
         .sort(() => Math.random() - 0.5)
@@ -81,6 +84,7 @@ const productsSlice = createSlice({
       state.hightRecommended = [...hightestStars];
       state.mostDiscount = [...mostDiscount];
       state.isLoading = false;
+     
     },
     dontAllowFetch: (state) => {
       state.allowFetch = false;

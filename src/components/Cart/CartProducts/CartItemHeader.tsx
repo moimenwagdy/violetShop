@@ -1,22 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cartPayload } from "../Types/types";
 import { faSquareMinus, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../Store/reduxHooks.tsx/hooks";
-import {
-  cartSliceAction,
-  // setAPICartItems,
-} from "../../../Store/StoreSlices/CartSlice/CartSlice";
-// import { useEffect } from "react";
+import { useAppDispatch } from "../../../Store/reduxHooks.tsx/hooks";
+import { cartSliceAction } from "../../../Store/StoreSlices/CartSlice/CartSlice";
 
 const CartItemHeader: React.FC<{ cartItem: cartPayload }> = ({ cartItem }) => {
   const dispatch = useAppDispatch();
-  // const userId = useAppSelector((state) => state.authorization.responseData.id);
-  const cartItems = useAppSelector((state) => state.cartSlice.cartProducts);
-  const emptyCart = cartItems.length === 0;
-  // const subQuan = cartItem.quantity < 0;
   const handleQuantity = (val: number) => {
     if (val === 1) {
       dispatch(cartSliceAction.increaseOneItemQuan({ itemID: cartItem.id }));
@@ -25,13 +14,6 @@ const CartItemHeader: React.FC<{ cartItem: cartPayload }> = ({ cartItem }) => {
     }
   };
 
-  // useEffect(() => {
-  //   dispatch(setAPICartItems({ id: userId, cart: cartItems }));
-  //   subQuan && dispatch(setAPICartItems({ id: userId, cart: cartItems }));
-  // }, [cartItem.quantity, cartItems.length]);
-
-  // emptyCart && dispatch(setAPICartItems({ id: userId, cart: cartItems }));
-  emptyCart && console.log("EMPTY CART");
   return (
     <header className="flex flex-col justify-center  gap-y-2 p-2">
       <h2 className="w-52 font-handWrite font-bold text-center text-middarkViolet">
