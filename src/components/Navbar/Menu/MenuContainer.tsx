@@ -42,7 +42,7 @@ const MenuContainer: React.FC<{ children: ReactNode }> = ({ children }) => {
   w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-1 z-[100]">
       <ul
         className={`${
-          !isSignUp ? "space-y-2" : ""
+          !isSignUp ? "space-y-1" : ""
         } font-handWrite menu rounded-md 
         w-full h-full bg-midlightViolet
         dark:bg-middarkViolet text-white p-4`}>

@@ -110,7 +110,7 @@ const NavForm = () => {
             initial="initial"
             exit="initial"
             onClick={formTarget}
-            className="text-lg mt-4 w-full mx-1">
+            className="text-lg mt-2 w-full mx-1">
             {isSignUp ? "Have An Account" : "Create New Account"}
           </motion.button>
         </>

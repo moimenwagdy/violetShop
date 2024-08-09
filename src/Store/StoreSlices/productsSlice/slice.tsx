@@ -53,6 +53,8 @@ const productsSlice = createSlice({
     hightRecommended: init,
     mostDiscount: init,
     isLoading: false,
+    searchResult: init,
+    mostSearched: init,
   },
   reducers: {
     saveProducts: (state, action: { payload: { products: product[] } }) => {
@@ -81,10 +83,13 @@ const productsSlice = createSlice({
       const mostDiscount = shuffledArray.filter((item) => {
         return item.discountPercentage > 19;
       });
+      const mostSearched = shuffledArray.filter((item) => {
+        return item.stock <= 3;
+      });
       state.hightRecommended = [...hightestStars];
       state.mostDiscount = [...mostDiscount];
+      state.mostSearched = [...mostSearched];
       state.isLoading = false;
-     
     },
     dontAllowFetch: (state) => {
       state.allowFetch = false;
@@ -143,6 +148,16 @@ const productsSlice = createSlice({
     },
     setIsLoading: (state) => {
       state.isLoading = true;
+    },
+    searchProduct: (state, action) => {
+      const query = action.payload;
+      const searchResults = state.filteredProducts.filter((product) => {
+        return (
+          product.title.includes(query) || product.description.includes(query)
+        );
+      });
+
+      state.searchResult = [...searchResults];
     },
   },
 });

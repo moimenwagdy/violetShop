@@ -1,3 +1,5 @@
+import Search from "../../components/Search/Search";
+
 const ContactUsPage = () => {
   return (
     <div className="container mx-auto p-4">
@@ -33,6 +35,7 @@ const ContactUsPage = () => {
           </div>
         </div>
       </div>
+      <Search />
     </div>
   );
 };

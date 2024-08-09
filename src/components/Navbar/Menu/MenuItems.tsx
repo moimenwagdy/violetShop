@@ -26,12 +26,13 @@ const MenuItems = () => {
     <MenuContainer>
       <HeaderMenuItem onClick={closeSiteMap} />
       <MenuItem title="home" target="" />
+      <MenuItem title="Search" target="search" />
       <MenuItem title="Products" target="products" />
       <MenuItem title="Cart" target="cart" />
       <MenuItem title="Contact Us" target="contact" />
       <MenuItem title="About Us" target="about" />
       <DarkLightMood />
-      <motion.li className="h-fit border-t py-1 flex flex-col justify-center">
+      <motion.li className="h-fit border-t flex flex-col justify-center">
         <UserData />
         <NavForm />
       </motion.li>

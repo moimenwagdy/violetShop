@@ -4,7 +4,7 @@ import product from "./types/Types";
 
 const ProductCard: React.FC<{ product: product }> = ({ product }) => {
   return (
-    <motion.div
+    <motion.ul
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
       initial="hidden"
       animate="visible"
@@ -14,7 +14,7 @@ const ProductCard: React.FC<{ product: product }> = ({ product }) => {
      rounded p-2 dark:p-1 w-full"
       key={product.id}>
       <Product product={product} />
-    </motion.div>
+    </motion.ul>
   );
 };
 

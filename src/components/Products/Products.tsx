@@ -18,7 +18,7 @@ import { AxiosError } from "axios";
 import { useEffect } from "react";
 import LoadingComponent from "../Loading/Loading";
 
-const Products: React.FC = () => {
+const Products: React.FC<{ products: product[] }> = ({ products }) => {
   const allowFetch = useAppSelector((state) => state.productsSlice.allowFetch);
   const dispatch = useAppDispatch();
   ///////////////////////////
@@ -42,13 +42,11 @@ const Products: React.FC = () => {
 
   ///////////////////////////
   //
-  const filteredProducts = useAppSelector(
-    (state) => state.productsSlice.filteredProducts
-  );
+
   const isFiltering = useAppSelector(
     (state) => state.productsSlice.isFiltering
   );
-  const ArrayIsNotEmpty = filteredProducts.length > 1;
+  const ArrayIsNotEmpty = products.length > 1;
   //
   const offset = useAppSelector((state) => state.productsSlice.offset);
   const showUpArrow = offset > 12;
@@ -68,7 +66,6 @@ const Products: React.FC = () => {
     dispatch(productsAction.setIsFiltring(false));
     scrollTo({ top: 0, behavior: "smooth" });
   };
-
   return (
     <>
       <span className=" flex justify-start items-center gap-x-10 ">
@@ -98,9 +95,9 @@ const Products: React.FC = () => {
         initial="hidden"
         animate="visible"
         className={`relative w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 `}>
-        {filteredProducts &&
+        {products &&
           ArrayIsNotEmpty &&
-          filteredProducts
+          products
             .filter((_, i) => i < offset)
             .map((product) => (
               <ProductCard key={product.id} product={product} />
