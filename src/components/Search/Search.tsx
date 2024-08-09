@@ -13,11 +13,13 @@ const Search = () => {
   }, []);
 
   return (
-    <main className="min-h-screen container mx-auto flex flex-col items-center gap-y-10">
-      <SearchForm />
-      <SearchResults />
-      <TopSearched />
-    </main>
+    <div className="bg-lightestViolet/20">
+      <main className=" min-h-screen container mx-auto flex flex-col items-center gap-y-10">
+        <SearchForm />
+        <SearchResults />
+        <TopSearched />
+      </main>
+    </div>
   );
 };
 

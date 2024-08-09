@@ -43,7 +43,7 @@ const SearchForm = () => {
           />
           <button
             type="submit"
-            className="dark:bg-darkViolet dark:text-white px-4 py-1 dark:hover:bg-white dark:hover:text-darkViolet">
+            className="bg-lightestViolet text-white hover:bg-white hover:text-darkViolet dark:bg-darkViolet dark:text-white px-4 py-1 dark:hover:bg-white dark:hover:text-darkViolet">
             Submit
           </button>
         </form>
