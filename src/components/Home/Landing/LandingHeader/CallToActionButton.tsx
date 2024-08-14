@@ -13,7 +13,7 @@ const CallToActionButton = () => {
       animate={{ opacity: 1, scale: [1.1, 1] }}
       transition={{ delay: 3.5 }}
       className="bg-darkViolet px-4 py-1 text-white mt-4 hover:bg-red-600">
-      Shope Now
+      Shop Now
     </motion.button>
   );
 };
