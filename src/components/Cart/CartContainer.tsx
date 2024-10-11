@@ -48,7 +48,7 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
             </aside>
           </>
         ) : (
-          <span className="text-center text-middarkViolet flex justify-center items-center gap-x-6 mt-24 sm:mt-0">
+          <span className="text-center dark:text-white text-middarkViolet flex justify-center items-center gap-x-6 mt-24 sm:mt-0">
             <h1 className="text-2xl font-bold  ">
               to manage cart you should
               <span
