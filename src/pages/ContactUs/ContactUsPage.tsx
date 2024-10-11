@@ -1,4 +1,3 @@
-import Search from "../../components/Search/Search";
 
 const ContactUsPage = () => {
   return (
@@ -35,7 +34,6 @@ const ContactUsPage = () => {
           </div>
         </div>
       </div>
-      <Search />
     </div>
   );
 };
