@@ -38,7 +38,7 @@ const LandingHeader = () => {
           <motion.p
             variants={{ visible: { opacity: 1, transition: { delay: 3 } } }}
             initial={{ opacity: 0 }}
-            className="text-sm ">
+            className="text-sm dark:text-white ">
             Discover your style with us !
           </motion.p>
           <CallToActionButton />
