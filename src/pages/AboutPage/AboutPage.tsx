@@ -1,6 +1,6 @@
 const AboutPage = () => {
   return (
-    <div className="container mx-auto px-4 pt-20 min-h-screen">
+    <div className="container mx-auto px-4 pt-20 min-h-screen dark:text-white">
       <h1 className="text-4xl font-bold mb-4">About Us</h1>
       <p className="text-lg mb-4">
         Welcome to VioletShop! We are dedicated to providing you with the best

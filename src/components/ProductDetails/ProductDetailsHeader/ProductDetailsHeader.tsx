@@ -8,7 +8,7 @@ const ProductDetailsHeader: React.FC<{ product: product }> = ({ product }) => {
 
   return (
     <div className="flex flex-col h-fit">
-      <h1 className="w-full text-center sm:text-start text-2xl md:text-4xl text-lightViolet font-handWrite font-bold">
+      <h1 className="w-full text-center sm:text-start text-2xl md:text-4xl dark:text-lightestViolet text-lightViolet font-handWrite font-bold">
         {product.title}
       </h1>
       <span className="mx-auto sm:mx-0 flex flex-col sm:flex-row gap-x-1 ">
@@ -16,7 +16,7 @@ const ProductDetailsHeader: React.FC<{ product: product }> = ({ product }) => {
         <p className=" line-through text-subColor_3 font-light ">{product.price}$</p>
       </span>
       <span className="w-full flex justify-center items-center sm:justify-start  gap-x-2 mt-4">
-        <p className="text-simidarkViolet">Rating</p>
+        <p className="text-darkViolet dark:text-white/70">Rating</p>
         <RatingStarsSVG rating={product.rating} />
       </span>
     </div>

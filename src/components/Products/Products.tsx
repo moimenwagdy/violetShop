@@ -73,12 +73,12 @@ const Products: React.FC<{ products: product[] }> = ({ products }) => {
           <Button
             title="Filter"
             onClick={openFilter}
-            additionalStyles="font-handWrite"
+            additionalStyles="font-handWrite dark:text-white"
           />
           <FontAwesomeIcon
             onClick={openFilter}
             icon={faArrowDownShortWide}
-            className="text-black  cursor-pointer"
+            className="text-black dark:text-white  cursor-pointer"
           />
         </div>
         {isFiltering && (

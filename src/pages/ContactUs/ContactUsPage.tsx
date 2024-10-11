@@ -1,7 +1,7 @@
 
 const ContactUsPage = () => {
   return (
-    <div className="container mx-auto p-4">
+    <div className="min-h-[60vh] container mx-auto p-4 dark:text-white">
       <h1 className="text-4xl font-bold mb-4 text-center mt-6">Contact Us</h1>
       <div className=" flex justify-center items-center gap-x-10 mt-10">
         <div className="flex flex-col gap-y-5">

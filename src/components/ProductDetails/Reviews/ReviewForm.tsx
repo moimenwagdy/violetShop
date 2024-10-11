@@ -51,11 +51,11 @@ const ReviewForm = () => {
   };
   return (
     <form
-      className="w-full sm:w-[70%] mx-auto flex flex-col gap-y-2 justify-center items-center"
+      className="w-full sm:w-[70%] mx-auto flex flex-col gap-y-6 justify-center items-center"
       onSubmit={addReview}>
-      <span className="-mb-4">
+      <span className="-mb-4 flex flex-col items-center">
         <RateItemStars />
-        {userRate === 0 && <p className="text-xs">rate this item</p>}
+        {userRate === 0 && <p className="text-md text-center">rate this item</p>}
       </span>
       <NavFormInput
         onChange={handleChange}

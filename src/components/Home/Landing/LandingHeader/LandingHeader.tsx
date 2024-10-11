@@ -13,7 +13,7 @@ const LandingHeader = () => {
       }}
       initial="hidden"
       animate="visible"
-      className="bg-gradient-to-t dark:bg-gradient-to-b from-similightViolet/50 dark:from-middarkViolet/50 to-transparent rounded-xl h-[30vh] md:h-[45vh] mt-6 sm:mt-28 ">
+      className="bg-gradient-to-bl dark:bg-gradient-to-br from-similightViolet/80 dark:from-middarkViolet/80 dark:via-transparent to-transparent rounded-xl h-[30vh] md:h-[45vh] mt-6 sm:mt-28 ">
       <Container>
         <div className="flex h-full flex-col justify-center items-center mx-auto gap-y-1">
           <h1 className="  text-2xl md:text-6xl font-handWrite font-extrabold text-subColor_4">
@@ -29,7 +29,7 @@ const LandingHeader = () => {
                   key={i}
                   variants={{ visible: { opacity: 1 } }}
                   initial={{ opacity: 0 }}
-                  className="font-extralight md:text-2xl text-middarkViolet">
+                  className="font-extralight md:text-2xl text-middarkViolet dark:text-lightestViolet">
                   {ala === " " ? "\u00A0" : ala}
                 </motion.li>
               );

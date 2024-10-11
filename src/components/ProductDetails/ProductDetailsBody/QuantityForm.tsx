@@ -6,7 +6,7 @@ const QuantityForm: React.FC<{
 }> = ({ product, onChange }) => {
   return (
     <span className="flex gap-x-4">
-      <label className="text-sm">Quantity</label>
+      <label className="text-sm dark:text-white">Quantity</label>
       <input
         onChange={(e) => onChange(e)}
         className="ps-2 placeholder:text-xs w-28 placeholder:ps-1 ring-2 ring-darkestViolet rounded-md focus-within:outline-red-600"

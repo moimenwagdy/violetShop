@@ -25,12 +25,18 @@ const ReviewItem: React.FC<{
         key={review.reviewerName}>
         <span className="flex flex-col">
           <span className="flex flex-row gap-x-4 items-center">
-            <p>{review.reviewerName}</p>
-            <p className="text-black/50 text-sm">{modefiedDate}</p>
+            <p className="dark:text-white">{review.reviewerName}</p>
+            <p className="text-black/50 dark:text-white/50 text-sm">
+              {modefiedDate}
+            </p>
           </span>
-          <p className="text-xs">{review.reviewerEmail}</p>
+          <p className="text-xs dark:text-white/50 -mt-1">
+            {review.reviewerEmail}
+          </p>
         </span>
-        <p className="text-darkestViolet font">{review.comment}</p>
+        <p className="text-darkestViolet dark:text-white font">
+          {review.comment}
+        </p>
         {!noRate && <RatingStarsSVG rating={review.rating} />}
       </motion.li>
     </>

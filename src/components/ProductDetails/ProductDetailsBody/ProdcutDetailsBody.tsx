@@ -34,10 +34,10 @@ const ProdcutDetailsBody: React.FC<{ product: product }> = ({ product }) => {
     <>
       <div className="flex flex-col gap-y-2 justify-start items-start">
         <div>
-          <p className="text-subColor_3/50 text-xs w-full text-center sm:text-start">
+          <p className="text-subColor_3/50 dark:text-white/50 text-xs w-full text-center sm:text-start">
             Product Description
           </p>
-          <p className="w-full lg:w-[80%] text-center sm:text-start">
+          <p className="w-full lg:w-[80%] text-center sm:text-start dark:text-white">
             {product.description}
           </p>
         </div>
@@ -81,7 +81,7 @@ const ProdcutDetailsBody: React.FC<{ product: product }> = ({ product }) => {
         ) : (
           <p
             onClick={openAuthForm}
-            className="cursor-pointer text-xs self-center sm:self-end text-subColor_4">
+            className="cursor-pointer text-xs self-center sm:self-end text-subColor_4 ">
             login to manage Cart
           </p>
         )}

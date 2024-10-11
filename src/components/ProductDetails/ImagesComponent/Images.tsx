@@ -36,7 +36,7 @@ const Images: React.FC<{ images: string[] }> = ({ images }) => {
           className="w-80 h-80"
         />
         <ul
-          className={`flex  rounded-md bg-productLighBG ${width} divide-x-2 divide-white`}>
+          className={`flex  rounded-md bg-productLighBG dark:bg-productLighBG/60 ${width} divide-x-2 divide-white dark:divide-white/50`}>
           {images &&
             images.map((image, i) => {
               return (

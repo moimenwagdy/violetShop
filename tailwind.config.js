@@ -40,6 +40,8 @@ export default {
         lightgradient: "lightgradient 60s ease-in-out infinite",
       },
       backgroundImage: {
+        dark: "url('/images/4.jpg')",
+        light: "url('/images/3.jpg')",
         "gradient-r-to-l":
           "linear-gradient(90deg, transparent,#200e30, grey, #5b2d84,transparent)",
         "gradientt-r-to-l":

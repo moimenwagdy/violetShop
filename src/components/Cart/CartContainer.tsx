@@ -28,14 +28,16 @@ const CartContainer: React.FC<{ cartItems: cartPayload[] }> = ({
   };
   return (
     <Container>
-      <main className="flex flex-col justify-between sm:justify-around sm:flex-row-reverse min-w-48 min-h-screen">
+      <main className="flex dark:text-white flex-col justify-between sm:justify-around sm:flex-row-reverse min-w-48 min-h-screen">
         {loggedIn ? (
           <>
             <section className="mt-10 shrink">
               {cartHasItems && <CartItems cartItems={cartItems} />}
               {!cartHasItems && (
                 <span className="mt-40 text-center text-middarkViolet flex justify-center items-end gap-x-6">
-                  <h1 className="text-2xl font-bold  ">Your Cart Is Empty</h1>
+                  <h1 className="text-2xl font-bold dark:text-white">
+                    Your Cart Is Empty
+                  </h1>
                 </span>
               )}
             </section>

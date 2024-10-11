@@ -26,9 +26,8 @@ const Navbar = () => {
     //refresher function for render.com avoiding user prodcuts server sleeping
     dispatch(getAPICartItems("initialemptyarray"));
   }, []);
-
   return (
-    <nav className="z-10 sm:mb-2 sticky sm:fixed top-0  w-full h-20  dark:bg-gradient-to-r dark:from-darkViolet dark:via-simidarkViolet dark:to-darkViolet bg-gradient-to-r from-violet-200 to-lightestViolet">
+    <nav className="z-10 sm:mb-2 sticky sm:fixed top-0  w-full h-20  dark:bg-gradient-to-r dark:from-darkViolet/50 dark:via-simidarkViolet/50 dark:to-darkViolet/50 bg-gradient-to-r from-violet-200/50 to-lightestViolet/50">
       <Container>
         <aside className="h-full flex justify-between items-center">
           <Logo />
