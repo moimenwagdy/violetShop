@@ -16,7 +16,7 @@ const CartItemHeader: React.FC<{ cartItem: cartPayload }> = ({ cartItem }) => {
 
   return (
     <header className="flex flex-col justify-center  gap-y-2 p-2">
-      <h2 className="w-52 font-handWrite font-bold text-center text-middarkViolet">
+      <h2 className="w-52 font-handWrite font-bold text-center text-middarkViolet dark:text-white">
         {cartItem.title}
       </h2>
       <section className="flex flex-row-reverse justify-center gap-x-8 items-center self-center sm:self-start">
