@@ -13,7 +13,7 @@ const MainLayout = () => {
 
   return (
     <>
-      <motion.div layout className="sm:mb-20">
+      <motion.div layout>
         <Navbar />
       </motion.div>
       <Outlet />
